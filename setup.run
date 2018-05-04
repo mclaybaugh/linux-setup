@@ -13,6 +13,12 @@ TARGET_USER="michael"
 #pacman -S base-devel vim okular firefox redshift tmux
 # st (suckless terminal) available from: https://github.com/LukeSmithxyz/st
 
+# Installation of rtl8812au for my wifi usb dongle
+# install dkms and build-essential
+#git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
+#cd rtl8812au
+# sudo ./dkms-install.sh
+
 # Desktop Environment: 
 #	KDE Plasma
 #		Good for regular user
@@ -22,7 +28,7 @@ TARGET_USER="michael"
 #pacman -S i3-wm i3status i3lock dmenu feh compton
 
 # Set config files from copies in LINUX_PROFILE
-cp .bashrc "/home/$TARGET_USER/.bashrc" -v
-cp .vimrc "/home/$TARGET_USER/.vimrc" -v
-cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
-cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
+#cp .bashrc "/home/$TARGET_USER/.bashrc" -v
+#cp .vimrc "/home/$TARGET_USER/.vimrc" -v
+#cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
+#cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
