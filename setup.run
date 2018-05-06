@@ -8,26 +8,39 @@
 
 TARGET_USER="michael"
 
-#Install my packages of choice
+#**************************************************************
+# Section 1: Installation of software
+#**************************************************************
 
-#pacman -S base-devel vim okular firefox redshift tmux
-# st (suckless terminal) available from: https://github.com/LukeSmithxyz/st
+# Things that I usually want to install
+# build-essential(or equivalent tools for distro)
+# git
+# vim
+#    For vim I also like the following (plugin manager and colors)
+#       - vim-plug
+#           1. install by running: 
+#              curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#              https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
+#           2. Open vim, install plugins with ":PlugInstall"
+#       - gruvbox (this comes when ":PlugInstall" is run as above)
 
 # Installation of rtl8812au for my wifi usb dongle
-# install dkms and build-essential
 #git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
 #cd rtl8812au
-# sudo ./dkms-install.sh
+#sudo ./dkms-install.sh
 
-# Desktop Environment: 
-#	KDE Plasma
-#		Good for regular user
-#	I3-wm
-#		Good for dev workstation and working mainly with keyboard
+# Terminal:
+# st (suckless terminal) available from: https://github.com/LukeSmithxyz/st
 
+# Arch installations
+#pacman -S base-devel vim okular firefox redshift
+
+# Arch: i3-wm
 #pacman -S i3-wm i3status i3lock dmenu feh compton
 
-# Set config files from copies in LINUX_PROFILE
+#*************************************************************
+# Section 2: Updating config files in home directory
+#**************************************************************
 #cp .bashrc "/home/$TARGET_USER/.bashrc" -v
 #cp .vimrc "/home/$TARGET_USER/.vimrc" -v
 #cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
