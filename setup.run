@@ -23,6 +23,9 @@ TARGET_USER="michael"
 #              https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
 #           2. Open vim, install plugins with ":PlugInstall"
 #       - gruvbox (this comes when ":PlugInstall" is run as above)
+# i3
+# feh (for background picture in i3)
+# redshift (for sweet sweet blue light reduction)
 
 # Installation of rtl8812au for my wifi usb dongle
 #git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
@@ -42,6 +45,6 @@ TARGET_USER="michael"
 # Section 2: Updating config files in home directory
 #**************************************************************
 #cp .bashrc "/home/$TARGET_USER/.bashrc" -v
-#cp .vimrc "/home/$TARGET_USER/.vimrc" -v
-#cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
-#cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
+cp .vimrc "/home/$TARGET_USER/.vimrc" -v
+cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
+cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
