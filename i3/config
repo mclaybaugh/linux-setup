@@ -13,6 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+# DEFAULT
+#font pango:monospace 8
+# MY PREFERENCE
+#   Available from: https://github.com/supermarin/YosemiteSanFranciscoFont
+#   to install, cd to $HOME/.fonts/ and run "git clone URL"
 font pango:Yosemite San Francisco Display 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -30,8 +35,7 @@ font pango:Yosemite San Francisco Display 12
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,7 +49,6 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-# MCLAYBAUGH CHANGE THIS TO MATCH VIM
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -134,7 +137,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 #MORE CLAYBAUGH STUFF
 assign [class="Firefox"] $ws2
-assign [class="okular"] $ws3
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,5 +181,3 @@ bar {
 #MCLAYBAUGH COMMANDS HERE
 bindsym $mod+shift+x exec i3lock
 exec_always feh --bg-scale /home/michael/Pictures/lighthouse_2048x1152.jpg
-exec redshift
-exec compton
