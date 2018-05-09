@@ -179,5 +179,5 @@ bar {
 }
 
 #MCLAYBAUGH COMMANDS HERE
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock --color=111111
 exec_always feh --bg-scale /home/michael/Pictures/lighthouse_2048x1152.jpg
