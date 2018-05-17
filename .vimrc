@@ -3,9 +3,9 @@ set tabstop=3
 set number
 set incsearch hlsearch
 
-" Allow fj or jf to escape insert mode
-inoremap fj <Esc>
-inoremap jf <Esc>
+" http://vim.wikia.com/wiki/Avoid_the_escape_key
+" For avoiding the escape key, will try C-[ and the various Alt commands
+" and see how that goes
 
 " increasing or decreasing line indents
 map .<Tab> I<Tab><Esc>
