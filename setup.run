@@ -4,7 +4,6 @@
 # Date last edited: 2018-04-17
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
-# RUN AS ROOT FOR INSTALLATION OF SOFTWARE
 
 TARGET_USER="michael"
 
@@ -13,7 +12,7 @@ TARGET_USER="michael"
 #**************************************************************
 
 # Things that I usually want to install
-# build-essential(or equivalent tools for distro)
+# build-essential (or equivalent tools for distro)
 # git
 # vim
 #    For vim I also like the following (plugin manager and colors)
@@ -22,10 +21,7 @@ TARGET_USER="michael"
 #              curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 #              https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
 #           2. Open vim, install plugins with ":PlugInstall"
-#       - gruvbox (this comes when ":PlugInstall" is run as above)
-# i3
-# feh (for background picture in i3)
-# redshift (for sweet sweet blue light reduction)
+#       - vim-javascript (this comes when ":PlugInstall" is run as above)
 
 # Installation of rtl8812au for my wifi usb dongle
 #git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
@@ -46,8 +42,8 @@ TARGET_USER="michael"
 #**************************************************************
 #cp .bashrc "/home/$TARGET_USER/.bashrc" -v
 cp .vimrc "/home/$TARGET_USER/.vimrc" -v
-cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
-cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
+#cp ./i3/config "/home/$TARGET_USER/.config/i3/config" -v
+#cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
 
 #**************************************************************
 # Section 3: Backing up system

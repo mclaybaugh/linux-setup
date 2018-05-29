@@ -12,7 +12,6 @@ map .<Tab> I<Tab><Esc>
 
 " Drew inspiration for navigation and html bindings from Luke Smith, see
 " github: https://github.com/LukeSmithxyz
-
 " Navigating with guides
 inoremap <Tab><Tab> <Esc>/<++><Enter>"_c4l
 vnoremap <Tab><Tab> <Esc>/<++><Enter>"_c4l
@@ -34,7 +33,9 @@ autocmd FileType php,html inoremap ;ol <ol><Enter><Tab><li></li><Enter></ol><Ent
 " Section for vim-plug 
 call plug#begin()
 Plug 'morhetz/gruvbox'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+" Changed this to use the default coloscheme for now
+"colorscheme gruvbox
+"set background=dark
