@@ -35,6 +35,7 @@ call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 set background=dark
