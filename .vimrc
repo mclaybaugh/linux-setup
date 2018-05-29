@@ -1,5 +1,6 @@
 " Michael Claybaugh's vimrc
-set tabstop=3
+set tabstop=2
+set shiftwidth=2
 set number
 set incsearch hlsearch
 
@@ -7,8 +8,7 @@ set incsearch hlsearch
 " For avoiding the escape key, will try C-[ and the various Alt commands
 " and see how that goes
 
-" increasing or decreasing line indents
-map .<Tab> I<Tab><Esc>
+" Increase and decrease indents with >> and <<
 
 " Drew inspiration for navigation and html bindings from Luke Smith, see
 " github: https://github.com/LukeSmithxyz
@@ -34,8 +34,7 @@ autocmd FileType php,html inoremap ;ol <ol><Enter><Tab><li></li><Enter></ol><Ent
 call plug#begin()
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
-" Changed this to use the default coloscheme for now
-"colorscheme gruvbox
-"set background=dark
+set background=dark
