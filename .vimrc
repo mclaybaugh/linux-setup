@@ -1,8 +1,11 @@
 " Michael Claybaugh's vimrc
-set tabstop=2
-set shiftwidth=2
+set tabstop=3
+set shiftwidth=3
 set number
-set incsearch hlsearch
+set incsearch hlsearch           " not needed in neovim as they are ON by default
+set list
+set listchars=tab:>-             " Show tabs visually as ">--"
+set cursorline                   " Highlight current line
 
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 " For avoiding the escape key, will try C-[ and the various Alt commands
