@@ -136,7 +136,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 #MORE CLAYBAUGH STUFF
-assign [class="Firefox"] $ws2
+#assign [class="Firefox"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -180,4 +180,4 @@ bar {
 
 #MCLAYBAUGH COMMANDS HERE
 bindsym $mod+shift+x exec i3lock --color=111111
-exec_always feh --bg-scale /home/michael/Pictures/lighthouse_2048x1152.jpg
+#exec_always feh --bg-scale /home/michael/Pictures/lighthouse_2048x1152.jpg
