@@ -18,12 +18,11 @@ TARGET_USER="michael"
 #    For vim I also like the following (plugin manager and colors)
 #       - vim-plug
 #           1. install by running: 
-#              curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-#              https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim	
+#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    #https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #           2. Open vim, install plugins with ":PlugInstall"
 
 # zsh, ohmyz.sh
-#sudo apt install zsh
 #chsh -s $(which zsh)
 # Then logout and back in
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -42,12 +41,17 @@ TARGET_USER="michael"
 # Arch: i3-wm
 #pacman -S i3-wm i3status i3lock dmenu feh compton
 
+# Ubuntu
+#sudo apt install build-essential zsh curl git neovim htop
+# git config -global user.name "Michael Claybaugh"
+# git config -global user.email "michael.claybaugh@gmail.com"
+
 #*************************************************************
 # Section 2: Updating config files in home directory
 #**************************************************************
 #cp .bashrc "/home/$TARGET_USER/.bashrc" -v
-cp .vimrc "/home/$TARGET_USER/.vimrc" -v
-cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
+#cp .vimrc "/home/$TARGET_USER/.vimrc" -v
+#cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
 #cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
 
 #**************************************************************
