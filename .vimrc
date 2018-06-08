@@ -38,14 +38,23 @@ inoremap ;ol <ol><Enter><Tab><li></li><Enter></ol><Enter><++><Esc>2kf>a
 
 " Section for vim-plug 
 call plug#begin()
-Plug 'morhetz/gruvbox'
+" Functional plugins
 Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
+" Colorschemes
+Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
 call plug#end()
+
+" Following recommended for Oceanic Next colorscheme
+"if (has("termguicolors"))
+"	set termguicolors
+"endif
 
 set background=dark
 colorscheme gruvbox
+"let g:airline_theme='oceanicnext'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
