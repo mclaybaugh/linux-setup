@@ -37,7 +37,7 @@ TARGET_USER="michael"
 #pacman -S i3-wm i3status i3lock dmenu feh compton
 
 # Ubuntu
-#sudo apt install build-essential zsh curl git neovim htop npm composer
+#sudo apt install build-essential zsh curl git neovim htop npm composer pandoc texlive
 # git config -global user.name "Michael Claybaugh"
 # git config -global user.email "michael.claybaugh@gmail.com"
 
