@@ -2,8 +2,8 @@
 " To use with vim, copy contents to ~/.vimrc
 " To use this with neovim, copy the contents to ~/.config/nvim/init.vim
 
-set tabstop=3
-set shiftwidth=3
+set tabstop=4
+set shiftwidth=4
 set number
 set incsearch hlsearch           " not needed in neovim as they are ON by default
 set list
