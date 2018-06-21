@@ -5,7 +5,7 @@
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
 
-TARGET_USER="michael"
+#TARGET_USER="michael"
 
 #**************************************************************
 # Section 1: Installation of software
@@ -60,4 +60,4 @@ TARGET_USER="michael"
 #	r -> recursive
 #	v -> verbose
 #	~/Backup/ -> copy CONTENTS of Backup
-#rsync -rv ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
+rsync -rv --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
