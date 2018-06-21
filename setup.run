@@ -1,11 +1,10 @@
 #!/bin/bash
 # Author: Michael Claybaugh
 # Date created: Friday, Apr 13, 2018
-# Date last edited: 2018-04-17
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
 
-#TARGET_USER="michael"
+#TARGET_USER="username"
 
 #**************************************************************
 # Section 1: Installation of software
@@ -27,37 +26,42 @@
 #cd rtl8812au
 #sudo ./dkms-install.sh
 
-# Terminal:
-# st (suckless terminal) available from: https://github.com/LukeSmithxyz/st
-
-# Arch installations
-#pacman -S base-devel vim okular firefox redshift
-
-# Arch: i3-wm
-#pacman -S i3-wm i3status i3lock dmenu feh compton
-
 # Ubuntu
-#sudo apt install build-essential zsh curl git neovim htop npm composer pandoc texlive
-# git config -global user.name "Michael Claybaugh"
-# git config -global user.email "michael.claybaugh@gmail.com"
+#sudo apt install build-essential zsh curl git neovim htop npm ranger
+#sudo snap install gimp inkscape slack
+# OTHER
+# Visual Studio Code, Google Chrome
+
 
 #*************************************************************
 # Section 2: Updating config files in home directory
 #**************************************************************
-#cp .bashrc "/home/$TARGET_USER/.bashrc" -v
-#cp .vimrc "/home/$TARGET_USER/.vimrc" -v
+
+# Copy over .vimrc to nvim "init.vim"
+#cp .vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
+
+# Setup git
+# git config -global user.name "Michael Claybaugh"
+# git config -global user.email "michael.claybaugh@gmail.com"
+
+# Unused files, do not comment unless using these
 #cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
 #cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
 
 #**************************************************************
 # Section 3: Backing up system
 #**************************************************************
+
+# Creating a backup
 # Step 1: get all files you want backed up in one place
 # rsync -rav SOURCE backup
 # Step 3: make compressed archive of files
 # tar -cvpzf backup2018-05-17.tar.gz backup
-# WORKING ON AN RSYNC COMMAND TO BACKUP FILES TO Digital Ocean
-#	r -> recursive
-#	v -> verbose
-#	~/Backup/ -> copy CONTENTS of Backup
-rsync -rv --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
+
+
+# Syncing files in ~/Backup/ to digital ocean droplet
+#	Options used:
+#		r -> recursive
+#		v -> verbose ~/Backup/ -> copy CONTENTS of Backup 
+#		--exclude 'node_modules' -> excludes all node_module directories to avoid backing that crap up
+i#rsync -rv --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
