@@ -64,4 +64,4 @@
 #		r -> recursive
 #		v -> verbose ~/Backup/ -> copy CONTENTS of Backup 
 #		--exclude 'node_modules' -> excludes all node_module directories to avoid backing that crap up
-i#rsync -rv --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
+rsync -r --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
