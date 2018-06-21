@@ -56,5 +56,8 @@ TARGET_USER="michael"
 # rsync -rav SOURCE backup
 # Step 3: make compressed archive of files
 # tar -cvpzf backup2018-05-17.tar.gz backup
-
-
+# WORKING ON AN RSYNC COMMAND TO BACKUP FILES TO Digital Ocean
+#	r -> recursive
+#	v -> verbose
+#	~/Backup/ -> copy CONTENTS of Backup
+#rsync -rv ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
