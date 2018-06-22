@@ -4,7 +4,7 @@
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
 
-#TARGET_USER="username"
+TARGET_USER="username"
 
 #**************************************************************
 # Section 1: Installation of software
@@ -57,11 +57,3 @@
 # rsync -rav SOURCE backup
 # Step 3: make compressed archive of files
 # tar -cvpzf backup2018-05-17.tar.gz backup
-
-
-# Syncing files in ~/Backup/ to digital ocean droplet
-#	Options used:
-#		r -> recursive
-#		v -> verbose ~/Backup/ -> copy CONTENTS of Backup 
-#		--exclude 'node_modules' -> excludes all node_module directories to avoid backing that crap up
-rsync -r --exclude 'node_modules' ~/Backup/ michael@michaelclaybaugh.com:~/Backup/
