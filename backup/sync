@@ -17,7 +17,13 @@ check_pull_status () {
 }
 
 backup_files () {
-	rsync --recursive --verbose --times -human-readable \
+	rsync --recursive --verbose --times --human-readable \
+		--exclude-from="exclude.txt" \
+		$LOCAL $REMOTE
+}
+
+backupAndDeleteDest_files () {
+	rsync --recursive --verbose --times --human-readable --delete \
 		--exclude-from="exclude.txt" \
 		$LOCAL $REMOTE
 }
@@ -46,5 +52,10 @@ fi
 
 read -p "Backup files? [y/n]: " backup
 if [ "$backup" == "y" ]; then
-	backup_files
+	read -p "Delete other DEST files? [y/n]: " delete
+	if [ "$delete" == "y" ]; then
+		backupAndDeleteDest_files
+	else
+		backup_files
+	fi
 fi
