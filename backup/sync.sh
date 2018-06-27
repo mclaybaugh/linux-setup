@@ -2,32 +2,31 @@
 # Syncing files in ~/Backup/ to personal server
 # Not using "archive" option as I don't want to save user/group, just timestamps. So I use "--times" option
 
+LOCAL="$HOME/Backup/"
+REMOTE="michael@michaelclaybaugh.com:Backup/"
+
 check_backup_status () {
 	rsync --recursive --verbose --times --human-readable  --update --dry-run \
 		--exclude-from="exclude.txt" \
-		~/Backup/ \
-		michael@michaelclaybaugh.com:~/Backup/
+		$LOCAL $REMOTE
 }
 
 check_pull_status () {
 	rsync --recursive --verbose --times --human-readable --update --dry-run  \
 		--exclude-from="exclude.txt" \
-		michael@michaelclaybaugh.com:~/Backup/ \
-		~/Backup/
+		$REMOTE $LOCAL
 }
 
 backup_files () {
 	rsync --recursive --verbose --times --human-readable \
 		--exclude-from="exclude.txt" \
-		~/Backup/ \
-		michael@michaelclaybaugh.com:~/Backup/
+		$LOCAL $REMOTE
 }
 
 pull_files () {
 	rsync --recursive --verbose --times --human-readable \
 		--exclude-from="exclude.txt" \
-		michael@michaelclaybaugh.com:~/Backup/ \
-		~/Backup/
+		$REMOTE $LOCAL
 }
 
 
