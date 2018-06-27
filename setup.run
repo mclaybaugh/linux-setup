@@ -41,19 +41,9 @@ TARGET_USER="username"
 #cp .vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
 
 # Setup git
-# git config -global user.name "Michael Claybaugh"
-# git config -global user.email "michael.claybaugh@gmail.com"
+#git config -global user.name "Michael Claybaugh"
+#git config -global user.email "michael.claybaugh@gmail.com"
 
 # Unused files, do not comment unless using these
 #cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
 #cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
-
-#**************************************************************
-# Section 3: Backing up system
-#**************************************************************
-
-# Creating a backup
-# Step 1: get all files you want backed up in one place
-# rsync -rav SOURCE backup
-# Step 3: make compressed archive of files
-# tar -cvpzf backup2018-05-17.tar.gz backup
