@@ -5,25 +5,25 @@ LOCAL="$HOME/Backup/"
 REMOTE="michael@michaelclaybaugh.com:Backup/"
 
 check_backup_status () {
-	rsync --recursive --verbose --times --group --human-readable  --update --dry-run \
+	rsync --recursive --verbose --times --human-readable  --update --dry-run \
 		--exclude-from="exclude.txt" \
 		$LOCAL $REMOTE
 }
 
 check_pull_status () {
-	rsync --recursive --verbose --times --group --human-readable --update --dry-run  \
+	rsync --recursive --verbose --times --human-readable --update --dry-run  \
 		--exclude-from="exclude.txt" \
 		$REMOTE $LOCAL
 }
 
 backup_files () {
-	rsync --recursive --verbose --times --group -human-readable \
+	rsync --recursive --verbose --times -human-readable \
 		--exclude-from="exclude.txt" \
 		$LOCAL $REMOTE
 }
 
 pull_files () {
-	rsync --recursive --verbose --times --group --human-readable \
+	rsync --recursive --verbose --times --human-readable \
 		--exclude-from="exclude.txt" \
 		$REMOTE $LOCAL
 }
