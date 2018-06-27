@@ -1,8 +1,8 @@
 #!/bin/bash
 # Syncing files in ~/Backup/ to personal server
 
-LOCAL="$HOME/Backup/"
-REMOTE="michael@michaelclaybaugh.com:Backup/"
+LOCAL="$HOME/backup/"
+REMOTE="michael@michaelclaybaugh.com:backup/"
 
 check_backup_status () {
 	rsync --recursive --verbose --times --human-readable  --update --dry-run \
