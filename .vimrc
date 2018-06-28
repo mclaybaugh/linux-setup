@@ -9,7 +9,7 @@ set tabstop=4
 set shiftwidth=4
 set number
 set incsearch hlsearch           " not needed in neovim as they are ON by default
-set list
+set list 
 set listchars=tab:>-             " Show tabs visually as ">--"
 set cursorline                   " Highlight current line
 set hidden                       " allow modified buffers to be hidden
@@ -31,6 +31,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 " Colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'dikiaap/minimalist'
+"Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
 call plug#end()
 
@@ -43,7 +45,8 @@ call plug#end()
 "* 2. Colorscheme
 "****************************************************
 set background=dark
-colorscheme gruvbox
+set t_Co=256 " this is recommended for minimalist colorscheme
+colorscheme minimalist
 
 "*****************************************************
 "* 3. Airline
