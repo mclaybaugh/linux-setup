@@ -12,6 +12,7 @@ set incsearch hlsearch           " not needed in neovim as they are ON by defaul
 set list
 set listchars=tab:>-             " Show tabs visually as ">--"
 set cursorline                   " Highlight current line
+set hidden                       " allow modified buffers to be hidden
 
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 " For avoiding the escape key, will try C-[ and the various Alt commands
@@ -26,6 +27,7 @@ call plug#begin()
 " Functional plugins
 Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -42,10 +44,10 @@ call plug#end()
 "****************************************************
 set background=dark
 colorscheme gruvbox
-"let g:airline_theme='oceanicnext'
+"let g:airline_theme='base16'
 
 "*****************************************************
-"* 3. NERDTree
+"* 4. NERDTree
 "*****************************************************
 map <C-n> :NERDTreeToggle<CR>
 
@@ -55,6 +57,22 @@ map <C-n> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 " show just the filename
 "let g:airline#extensions#tabline#fnamemod = ':t'
+
+"*****************************************************
+"* 4. Other keybindings
+"*****************************************************
+"Changing buffers
+nnoremap <m--> :bn<CR>
+nnoremap <m-1> :1b<CR>
+nnoremap <m-2> :2b<CR>
+nnoremap <m-3> :3b<CR>
+nnoremap <m-4> :4b<CR>
+nnoremap <m-5> :5b<CR>
+nnoremap <m-6> :6b<CR>
+nnoremap <m-7> :7b<CR>
+nnoremap <m-8> :8b<CR>
+nnoremap <m-9> :9b<CR>
+nnoremap <m-0> :10b<CR>
 
 " Drew inspiration for navigation and html bindings from Luke Smith, see
 " github: https://github.com/LukeSmithxyz
