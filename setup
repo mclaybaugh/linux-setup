@@ -4,7 +4,7 @@
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
 
-TARGET_USER="username"
+TARGET_USER="mclaybaugh2"
 
 #**************************************************************
 # Section 1: Installation of software
@@ -27,7 +27,7 @@ TARGET_USER="username"
 #sudo ./dkms-install.sh
 
 # Ubuntu
-#sudo apt install build-essential zsh curl git neovim htop npm ranger
+#sudo apt install build-essential zsh curl git neovim htop npm ranger fonts-powerline
 #sudo snap install gimp inkscape slack
 # OTHER
 # Visual Studio Code, Google Chrome
@@ -38,7 +38,7 @@ TARGET_USER="username"
 #**************************************************************
 
 # Copy over .vimrc to nvim "init.vim"
-#cp .vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
+cp .vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
 
 # Setup git
 #git config -global user.name "Michael Claybaugh"
