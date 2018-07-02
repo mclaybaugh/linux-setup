@@ -101,16 +101,9 @@ map <C-n> :NERDTreeToggle<CR>
 "*****************************************************
 "Changing buffers
 nnoremap <m--> :bn<CR>
-nnoremap <m-1> :1b<CR>
-nnoremap <m-2> :2b<CR>
-nnoremap <m-3> :3b<CR>
-nnoremap <m-4> :4b<CR>
-nnoremap <m-5> :5b<CR>
-nnoremap <m-6> :6b<CR>
-nnoremap <m-7> :7b<CR>
-nnoremap <m-8> :8b<CR>
-nnoremap <m-9> :9b<CR>
-nnoremap <m-0> :10b<CR>
+
+"escaping terminal with Esc
+tnoremap <Esc> <C-\><C-n>
 
 " Drew inspiration for navigation and html bindings from Luke Smith, see
 " github: https://github.com/LukeSmithxyz
