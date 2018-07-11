@@ -9,8 +9,9 @@ set tabstop=4
 set shiftwidth=4
 set number
 set incsearch hlsearch           " not needed in neovim as they are ON by default
-set list 
-set listchars=tab:>-             " Show tabs visually as ">--"
+set list
+set listchars=tab:\|\ 
+" Show tabs visually as >--
 set cursorline                   " Highlight current line
 set hidden                       " allow modified buffers to be hidden
 
@@ -30,10 +31,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 " Colorschemes
-Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox' 
 Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 call plug#end()
 
 " Following recommended for Oceanic Next colorscheme
@@ -44,10 +46,16 @@ call plug#end()
 "****************************************************
 "* 2. Colorscheme
 "****************************************************
-set background=dark
-set t_Co=256 " this is recommended for minimalist colorscheme
-colorscheme minimalist
+"set background=dark " use this for gruvbox
+"colorscheme gruvbox
 
+"set t_Co=256 " this is recommended for minimalist colorscheme
+"colorscheme minimalist
+
+" sublimemonokai stuff
+set termguicolors
+let g:sublime_monokai_term = 1
+colorscheme sublimemonokai
 "*****************************************************
 "* 3. Airline
 "*****************************************************
