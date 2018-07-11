@@ -11,7 +11,7 @@ set number
 set incsearch hlsearch           " not needed in neovim as they are ON by default
 set list
 set listchars=tab:\|\ 
-" Show tabs visually as >--
+" Show tabs visually as |
 set cursorline                   " Highlight current line
 set hidden                       " allow modified buffers to be hidden
 
@@ -109,6 +109,9 @@ map <C-n> :NERDTreeToggle<CR>
 "*****************************************************
 "Changing buffers
 nnoremap <m--> :bn<CR>
+
+"shortcut to un-highlight search terms
+nnoremap <Space><Space> :nohlsearch<CR>
 
 "escaping terminal with Esc
 tnoremap <Esc> <C-\><C-n>
