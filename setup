@@ -44,7 +44,7 @@ TARGET_USER="mclaybaugh2"
 #**************************************************************
 
 # Copy over .vimrc to nvim "init.vim"
-cp .vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
+cp vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
 
 # Setup git
 #git config -global user.name "Michael Claybaugh"
