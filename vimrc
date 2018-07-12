@@ -5,8 +5,7 @@
 "*************************************************
 "* 0. general settings
 "*************************************************
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 shiftwidth=4 expandtab
 set number
 set incsearch hlsearch           " not needed in neovim as they are ON by default
 set list
@@ -30,6 +29,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
+Plug 'Yggdroot/indentLine'
 " Colorschemes
 Plug 'morhetz/gruvbox' 
 Plug 'dikiaap/minimalist'
@@ -38,10 +38,6 @@ Plug 'dikiaap/minimalist'
 Plug 'ErichDonGubler/vim-sublime-monokai'
 call plug#end()
 
-" Following recommended for Oceanic Next colorscheme
-"if (has("termguicolors"))
-"	set termguicolors
-"endif
 
 "****************************************************
 "* 2. Colorscheme
@@ -56,6 +52,12 @@ call plug#end()
 set termguicolors
 let g:sublime_monokai_term = 1
 colorscheme sublimemonokai
+
+" Following recommended for Oceanic Next colorscheme
+"if (has("termguicolors"))
+"	set termguicolors
+"endif
+
 "*****************************************************
 "* 3. Airline
 "*****************************************************
@@ -105,7 +107,12 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 4. Other keybindings
+"* 5. indentLine 
+"*****************************************************
+let g:indentLine_setColors = 0
+
+"*****************************************************
+"* 6. Other keybindings
 "*****************************************************
 "Changing buffers
 nnoremap <m--> :bn<CR>
