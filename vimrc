@@ -44,9 +44,6 @@ call plug#end()
 "****************************************************
 "* 2. Colorscheme
 "****************************************************
-"set background=dark " use this for gruvbox
-"colorscheme gruvbox
-
 "set t_Co=256 " this is recommended for minimalist colorscheme
 "colorscheme minimalist
 
@@ -62,7 +59,8 @@ colorscheme sublimemonokai
 "if (has("termguicolors"))
 "	set termguicolors
 "endif
-
+nnoremap <C-g> :colorscheme gruvbox<CR>:set background=dark<CR>
+nnoremap <C-s> :colorscheme sublimemonokai<CR>
 "*****************************************************
 "* 3. Airline
 "*****************************************************
