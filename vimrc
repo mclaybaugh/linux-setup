@@ -132,11 +132,24 @@ let g:closetag_filetypes = 'html,xhtml,phtml,php'
 "Changing buffers
 nnoremap <m--> :bn<CR>
 
+" more natual split opening
+set splitbelow
+set splitright
+
 "navigating windows
 nnoremap <C-k> :wincmd k<CR>
 nnoremap <C-l> :wincmd l<CR>
 nnoremap <C-j> :wincmd j<CR>
 nnoremap <C-h> :wincmd h<CR>
+
+" resizing windows
+nnoremap <m-k> :resize +5<CR>
+nnoremap <m-l> :vertical resize -5<CR>
+nnoremap <m-h> :vertical resize +5<CR>
+nnoremap <m-j> :resize -5<CR>
+
+" rotate kindows (move them)
+nnoremap <m-r> <C-w>R
 
 "shortcut to un-highlight search terms
 nnoremap <Space><Space> :nohlsearch<CR>
