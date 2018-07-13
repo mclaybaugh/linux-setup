@@ -97,6 +97,7 @@ let g:airline_symbols.linenr = ''
 " enable list of buffers
 " joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " show just the filename
 "let g:airline#extensions#tabline#fnamemod = ':t'
@@ -131,8 +132,11 @@ let g:closetag_filetypes = 'html,xhtml,phtml,php'
 "Changing buffers
 nnoremap <m--> :bn<CR>
 
-"Navigating windows like buffers
-nnoremap <m-0> <C-w>w
+"navigating windows
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-h> :wincmd h<CR>
 
 "shortcut to un-highlight search terms
 nnoremap <Space><Space> :nohlsearch<CR>
