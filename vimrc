@@ -34,10 +34,10 @@ Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 " Colorschemes
 Plug 'morhetz/gruvbox' 
+Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
-Plug 'ErichDonGubler/vim-sublime-monokai'
 call plug#end()
 
 
@@ -117,7 +117,16 @@ let g:indentLine_setColors = 0
 let g:indentLine_concealcursor = 'nc'
 
 "*****************************************************
-"* 6. Other keybindings
+"* 6. vim-closetag 
+"*****************************************************
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml,php'
+
+"*****************************************************
+"* 7. Other keybindings
 "*****************************************************
 "Changing buffers
 nnoremap <m--> :bn<CR>
