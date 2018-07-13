@@ -13,7 +13,7 @@ set listchars=tab:\|\
 " Show tabs visually as |
 set cursorline      " Highlight current line
 set hidden           " allow modified buffers to be hidden
-set noshowmatch     " Sometimes the highlighted matching braces caused me some confusion
+set noshowmatch     " Sometimes the highlighted matching braces caused me confusion
 
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 " For avoiding the escape key, will try C-[ and the various Alt commands
@@ -124,8 +124,12 @@ let g:indentLine_concealcursor = 'nc'
 "Changing buffers
 nnoremap <m--> :bn<CR>
 
+"Navigating windows like buffers
+nnoremap <m-0> <C-w>w
+
 "shortcut to un-highlight search terms
 nnoremap <Space><Space> :nohlsearch<CR>
 
 "escaping terminal with Esc
 tnoremap <Esc> <C-\><C-n>
+
