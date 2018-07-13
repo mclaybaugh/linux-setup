@@ -33,7 +33,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 " Colorschemes
 Plug 'morhetz/gruvbox' 
-Plug 'dikiaap/minimalist'
+"Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
 Plug 'ErichDonGubler/vim-sublime-monokai'
@@ -50,7 +50,10 @@ call plug#end()
 "colorscheme minimalist
 
 " sublimemonokai stuff
-set termguicolors
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 let g:sublime_monokai_term = 1
 colorscheme sublimemonokai
 
@@ -99,9 +102,6 @@ let g:airline#extensions#tabline#enabled = 1
 " show just the filename
 "let g:airline#extensions#tabline#fnamemod = ':t'
 "
-" Show buffer numbers
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-
 "*****************************************************
 "* 4. NERDTree
 "*****************************************************
@@ -110,7 +110,12 @@ map <C-n> :NERDTreeToggle<CR>
 "*****************************************************
 "* 5. indentLine 
 "*****************************************************
+"NOTE: indentLine turns on conceal feature so depending on syntax some
+"   characters are hidden by default. I modified the default conceal cursor
+"   from 'inc' to 'nc' so that the hidden characters will show when one is
+"   editing the line
 let g:indentLine_setColors = 0
+let g:indentLine_concealcursor = 'nc'
 
 "*****************************************************
 "* 6. Other keybindings
