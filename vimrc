@@ -6,14 +6,13 @@
 "* 0. general settings
 "*************************************************
 set tabstop=4 shiftwidth=4 expandtab
-set number
+set number relativenumber
 set incsearch hlsearch    " not needed in neovim as they are ON by default
-set list
+set list 
 set listchars=tab:\|\ 
 " Show tabs visually as |
 set cursorline      " Highlight current line
 set hidden           " allow modified buffers to be hidden
-set noshowmatch     " Sometimes the highlighted matching braces caused me confusion
 
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 " For avoiding the escape key, will try C-[ and the various Alt commands
