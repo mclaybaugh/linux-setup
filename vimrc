@@ -31,6 +31,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
+Plug 'vim-syntastic/syntastic'
+Plug 'airblade/vim-gitgutter'
 " Colorschemes
 Plug 'morhetz/gruvbox' 
 Plug 'ErichDonGubler/vim-sublime-monokai'
@@ -126,11 +128,16 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
 let g:closetag_filetypes = 'html,xhtml,phtml,php'
 
 "*****************************************************
-"* 7. Programming stuff
+"* 7. Syntastic
 "*****************************************************
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" syntax checker for php
-nnoremap <C-p> :!php -l %<CR>
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "*****************************************************
 "* 8. Other keybindings
