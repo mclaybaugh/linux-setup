@@ -126,7 +126,14 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
 let g:closetag_filetypes = 'html,xhtml,phtml,php'
 
 "*****************************************************
-"* 7. Other keybindings
+"* 7. Programming stuff
+"*****************************************************
+
+" syntax checker for php
+nnoremap <C-p> :!php -l %<CR>
+
+"*****************************************************
+"* 8. Other keybindings
 "*****************************************************
 "Changing buffers
 nnoremap <m--> :bn<CR>
@@ -155,4 +162,5 @@ nnoremap <Space><Space> :nohlsearch<CR>
 
 "escaping terminal with Esc
 tnoremap <Esc> <C-\><C-n>
+
 
