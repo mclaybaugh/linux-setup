@@ -25,6 +25,7 @@ set hidden           " allow modified buffers to be hidden
 "***************************************************
 call plug#begin()
 " Functional plugins
+Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
