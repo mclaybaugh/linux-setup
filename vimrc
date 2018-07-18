@@ -25,7 +25,6 @@ set hidden           " allow modified buffers to be hidden
 "***************************************************
 call plug#begin()
 " Functional plugins
-Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
@@ -33,6 +32,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Colorschemes
 Plug 'morhetz/gruvbox' 
 Plug 'ErichDonGubler/vim-sublime-monokai'
