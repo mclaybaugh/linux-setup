@@ -101,10 +101,10 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Terminal"
-set $ws2 "2: Browser"
+set $ws2 "2: Firefox"
 set $ws3 "3: Collaboration"
 set $ws4 "4: Documents"
-set $ws5 "5"
+set $ws5 "5: Chrome"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -179,6 +179,6 @@ bar {
 }
 
 #MCLAYBAUGH COMMANDS HERE
-bindsym $mod+shift+x exec i3lock --color=111111
-exec_always redshift -O 3500 
+bindsym $mod+Shift+x exec i3lock --color=111111
+#exec_always redshift -O 3500 
 exec_always feh --bg-scale /home/mclaybaugh2/Pictures/lighthouse_2048x1152.jpg
