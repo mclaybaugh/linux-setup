@@ -53,9 +53,11 @@ call plug#end()
 if (has("termguicolors"))
     set termguicolors
 endif
+"let g:sublime_monokai_term = 1
 
-let g:sublime_monokai_term = 1
-colorscheme sublimemonokai
+" gruvbox stuff
+set background=dark
+colorscheme gruvbox
 
 " Following recommended for Oceanic Next colorscheme
 "if (has("termguicolors"))
