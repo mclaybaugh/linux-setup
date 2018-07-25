@@ -1,6 +1,9 @@
+;;**********************************************************
 ;; Michael Claybaugh's emacs init file
+;;**********************************************************
+;; Section 1: melpa :: see https://github.com/melpa/melpa
+;;**********************************************************
 
-;; MELPA see https://github.com/melpa/melpa
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
@@ -27,6 +30,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;***********************************************************
+;; Section 2: Customizations and keybindings
+;;***********************************************************
 ;; Disable audible bell because reasons
 (setq visible-bell 1)
 
