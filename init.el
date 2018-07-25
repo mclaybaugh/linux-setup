@@ -29,7 +29,7 @@
 
 ;; Disable audible bell because reasons
 (setq visible-bell 1)
-					;
+
 ;; Disable toolbar
 (tool-bar-mode -1)
 
@@ -41,3 +41,13 @@
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; show-whitespace
+(setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark newline-mark)))
+
+;; Keybindings
+;; enable whitespace-mode
+(global-set-key (kbd "<f7>") 'whitespace-mode)
+
+;; delete line like 'dd' in vim
+(global-set-key (kbd "C-d") 'kill-whole-line)
