@@ -22,7 +22,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit neotree markdown-mode gruvbox-theme rust-mode web-mode))))
+    (highlight-indent-guides magit neotree markdown-mode gruvbox-theme rust-mode web-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -48,12 +48,44 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; show matching paren without delay
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+
+;; no tabs
+(setq-default indent-tabs-mode nil)
+;;(setq tab-width 4)
+(setq-default tab-width 4)
+
 ;; show-whitespace
-(setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark newline-mark)))
+(setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark)))
 
 ;; Keybindings
+;; show line numbers
+(global-set-key (kbd "<f6>") 'linum-mode)
+
 ;; enable whitespace-mode
 (global-set-key (kbd "<f7>") 'whitespace-mode)
 
 ;; delete line like 'dd' in vim
 (global-set-key (kbd "C-d") 'kill-whole-line)
+
+;; Web mode
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(setq web-mode-markup-indent-offset 4)
+(setq web-mode-css-indent-offset 4)
+(setq web-mode-code-indent-offset 4)
+
+;; highlight-indent-guides
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'character)
