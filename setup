@@ -29,6 +29,9 @@ TARGET_USER="mclaybaugh2"
 # Ubuntu
 #sudo apt install build-essential zsh curl git neovim htop npm ranger fonts-powerline
 
+# Latex
+#sudo apt install texlive-full
+
 # snap applications I use
 #sudo snap install gimp inkscape slack
 

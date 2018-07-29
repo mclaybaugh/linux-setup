@@ -22,7 +22,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck highlight-indent-guides magit neotree markdown-mode gruvbox-theme rust-mode web-mode))))
+    (auctex flycheck highlight-indent-guides magit neotree markdown-mode gruvbox-theme rust-mode web-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -59,6 +59,9 @@
 
 ;; show-whitespace
 (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark)))
+
+;; backup in one place. flat, no tree structure
+(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
 ;; Keybindings
 ;; show line numbers
@@ -105,3 +108,12 @@
       (setq-local flycheck-javascript-eslint-executable eslint))))
 
 (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+
+;; latex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-PDF-mode t)
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+
+(provide 'init)
+;;; init ends here
