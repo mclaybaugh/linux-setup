@@ -3,3 +3,12 @@ target
 dist
 build
 .vscode
+*.aux
+*.bcf
+*.log
+*.run.xml
+auto
+*.bbl
+*.nbib
+*.blg
+*#
