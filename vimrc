@@ -59,10 +59,6 @@ endif
 set background=dark
 colorscheme gruvbox
 
-" Following recommended for Oceanic Next colorscheme
-"if (has("termguicolors"))
-"	set termguicolors
-"endif
 nnoremap <C-g> :colorscheme gruvbox<CR>:set background=dark<CR>
 nnoremap <C-s> :colorscheme sublimemonokai<CR>
 "*****************************************************
