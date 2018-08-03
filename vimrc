@@ -34,6 +34,7 @@ Plug 'alvan/vim-closetag'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'lervag/vimtex'
 Plug 'Valloric/YouCompleteMe' 
 " For YouCompleteMe:
 " I use C, go, and rust options ( I don't use C# or Java )
