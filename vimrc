@@ -34,6 +34,12 @@ Plug 'alvan/vim-closetag'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe' 
+" For YouCompleteMe:
+" I use C, go, and rust options ( I don't use C# or Java )
+" For javascript typescript, ensure that typescript is installed with 
+" npm install -g typescript
+" ./install.py --clang-completer --go-completer --rust-completer
 " Colorschemes
 Plug 'morhetz/gruvbox' 
 Plug 'ErichDonGubler/vim-sublime-monokai'
