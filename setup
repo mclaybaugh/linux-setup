@@ -33,7 +33,7 @@ TARGET_USER="mclaybaugh2"
 #sudo apt install texlive-full
 
 # snap applications I use
-#sudo snap install gimp inkscape slack
+#sudo snap install gimp inkscape slack taskbook
 
 # setting up a server with php
 #sudo apt install apache2 php libapache2-mod-php
@@ -50,8 +50,8 @@ TARGET_USER="mclaybaugh2"
 cp vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
 
 # Setup git
-#git config -global user.name "Michael Claybaugh"
-#git config -global user.email "michael.claybaugh@gmail.com"
+#git config --global user.name "Michael Claybaugh"
+#git config --global user.email "michael.claybaugh@gmail.com"
 
 # Unused files, do not comment unless using these
 #cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
