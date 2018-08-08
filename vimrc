@@ -6,7 +6,7 @@
 "* 0. general settings
 "*************************************************
 set tabstop=4 shiftwidth=4 expandtab
-set number relativenumber
+set number
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list 
 set listchars=tab:\|\ ,space:·
@@ -175,6 +175,10 @@ nnoremap <Space><Space> :nohlsearch<CR>
 
 "escaping terminal with Esc
 tnoremap <Esc> <C-\><C-n>
+
+" Line number toggling
+nnoremap <f3> :set norelativenumber<CR>
+nnoremap <f4> :set relativenumber<CR>
 
 " Spell checking
 nnoremap <f5> :setlocal spell spelllang=en_us <CR>
