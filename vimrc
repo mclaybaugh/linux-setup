@@ -176,4 +176,6 @@ nnoremap <Space><Space> :nohlsearch<CR>
 "escaping terminal with Esc
 tnoremap <Esc> <C-\><C-n>
 
-
+" Spell checking
+nnoremap <f5> :setlocal spell spelllang=en_us <CR>
+nnoremap <f6> :set nospell <CR>
