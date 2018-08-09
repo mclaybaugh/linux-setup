@@ -33,7 +33,7 @@ TARGET_USER="mclaybaugh2"
 #sudo apt install texlive-full
 
 # snap applications I use
-#sudo snap install gimp inkscape slack taskbook
+#sudo snap install gimp inkscape slack
 
 # setting up a server with php
 #sudo apt install apache2 php libapache2-mod-php
