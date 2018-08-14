@@ -4,54 +4,78 @@
 # Description: Bash shell script for automating the setup of my prefered linux
 #              programs and settings
 
-TARGET_USER="mclaybaugh2"
+# 1. Create separate home partition
+# 2. Install linux
+# 3. install software
 
 #**************************************************************
 # Section 1: Installation of software
 #**************************************************************
-# zsh, ohmyz.sh
-#chsh -s $(which zsh)
-# Then logout and back in
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-#vim-plug
-#   1. install by running: 
-#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-#https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-#   2. Open vim, install plugins with ":PlugInstall"
 
 # Installation of rtl8812au for my wifi usb dongle
 #git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
 #cd rtl8812au
 #sudo ./dkms-install.sh
 
-# Ubuntu
-#sudo apt install build-essential zsh curl git neovim htop npm ranger fonts-powerline
-#sudo apt install python python-dev python-pip python3 python3-dev python3-pi
+
+# The normal stuff
+#build-essential zsh curl git neovim htop npm nodejs ranger \
+#fonts-powerline
+
+# Python
+#python python-dev python-pip python3 python3-dev python3-pip
+
+# Docker
+#docker docker-compose
 
 # Latex
-#sudo apt install texlive-full biber
+#texlive-full biber
 
-# snap applications I use
-#sudo snap install gimp inkscape slack
+# SNAP applications I use
+#gimp slack
 
-# setting up a server with php
-#sudo apt install apache2 php libapache2-mod-php
+# LAMP stack
+#apache2 php libapache2-mod-php
 
 # OTHER
 # Visual Studio Code, Google Chrome
 
+# Ubuntu
+apt install build-essential zsh curl git neovim htop npm \
+ranger fonts-powerline nodejs \
+python python-dev python-pip python3 python3-dev python3-pip \
+docker docker-compose \
+texlive-full biber \
+apache2 php libapache2-mod-php
+
+snap install gimp slack
+
+# zsh, ohmyz.sh
+#chsh -s $(which zsh)
+# Then logout and back in
+#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Vim-Plug
+#   1. install by running: 
+#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+#https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#   2. Open vim, install plugins with ":PlugInstall"
 
 #*************************************************************
-# Section 2: Updating config files in home directory
+# Section 2: post install
 #**************************************************************
+
+#*************************************************************
+# Section 3: Updating config files in home directory
+#**************************************************************
+TARGET_USER="mclaybaugh2"
 
 # Copy over .vimrc to nvim "init.vim"
 cp vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
 
 # Setup git
 #git config --global user.name "Michael Claybaugh"
-#git config --global user.email "michael.claybaugh@gmail.com"
+#git config --global user.email "mclaybaugh2@liberty.edu"
 
 # Unused files, do not comment unless using these
 #cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
