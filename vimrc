@@ -5,7 +5,8 @@
 "*************************************************
 "* 0. general settings
 "*************************************************
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=4 
+set shiftwidth=4
 set number
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list 
@@ -29,7 +30,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine' removed because it makes some markup hidden
 Plug 'alvan/vim-closetag'
 Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
@@ -43,7 +44,7 @@ Plug 'Valloric/YouCompleteMe'
 " ./install.py --clang-completer --go-completer --rust-completer
 " Colorschemes
 Plug 'morhetz/gruvbox' 
-Plug 'ErichDonGubler/vim-sublime-monokai'
+"Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
@@ -121,8 +122,8 @@ map <C-n> :NERDTreeToggle<CR>
 "   characters are hidden by default. I modified the default conceal cursor
 "   from 'inc' to 'nc' so that the hidden characters will show when one is
 "   editing the line
-let g:indentLine_setColors = 0
-let g:indentLine_concealcursor = 'nc'
+"let g:indentLine_setColors = 0
+"let g:indentLine_concealcursor = 'nc'
 
 "*****************************************************
 "* 6. vim-closetag 
@@ -183,3 +184,6 @@ nnoremap <f4> :set relativenumber<CR>
 " Spell checking
 nnoremap <f5> :setlocal spell spelllang=en_us <CR>
 nnoremap <f6> :set nospell <CR>
+
+" Syntastic turn off
+nnoremap <f7> :SyntasticToggleMode<CR>
