@@ -32,3 +32,7 @@ I started this when I had Arch linux installed, and then I shortly after moved t
 2. .config/i3/config
 
     I use Gnome with Ubuntu.
+   
+3. init.el
+    
+    I used emacs for a bit to try it out, but I am just using neovim and vscode currently
