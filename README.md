@@ -2,7 +2,7 @@
 
 Tools and scripts to setup and configure a linux desktop, and to sync files with a remote location.
 
-## Actively used components
+## Components
 
 1. setup.run
     
@@ -20,19 +20,3 @@ Tools and scripts to setup and configure a linux desktop, and to sync files with
     Sync files from a local directory to a remote location. Can do the following as prompted:
     - pull files from remote
     - backup files to remote
-
-## Components that I DO NOT use
-
-I started this when I had Arch linux installed, and then I shortly after moved to Ubuntu (18.04). Most of the unused items are from when I was on Arch linux.
-
-1. redshift.conf
-
-    I use the default Ubuntu Gnome option for this at the moment
-
-2. .config/i3/config
-
-    I use Gnome with Ubuntu.
-   
-3. init.el
-    
-    I used emacs for a bit to try it out, but I am just using neovim and vscode currently
