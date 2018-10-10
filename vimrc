@@ -5,8 +5,8 @@
 "*************************************************
 "* 0. general settings
 "*************************************************
-set tabstop=4 
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set number
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list 
@@ -33,10 +33,10 @@ Plug 'scrooloose/nerdtree'
 "Plug 'Yggdroot/indentLine' removed because it makes some markup hidden
 Plug 'alvan/vim-closetag'
 Plug 'vim-syntastic/syntastic'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'lervag/vimtex'
-Plug 'Valloric/YouCompleteMe' 
+"Plug 'airblade/vim-gitgutter'
+"Plug 'tpope/vim-fugitive'
+"Plug 'lervag/vimtex'
+"Plug 'Valloric/YouCompleteMe' 
 " For YouCompleteMe:
 " I use C, go, and rust options ( I don't use C# or Java )
 " For javascript typescript, ensure that typescript is installed with 
