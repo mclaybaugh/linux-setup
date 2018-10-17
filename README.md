@@ -13,7 +13,7 @@ Tools and scripts to setup and configure a linux desktop, and to sync files with
 
 2. .vimrc
     
-    Compatible with vim and neovim. I currently use neovim.
+    Compatible with vim and neovim.
 
 3. backup/sync.sh
     
