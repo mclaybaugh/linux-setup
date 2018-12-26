@@ -5,11 +5,10 @@
 "*************************************************
 "* 0. general settings
 "*************************************************
-set tabstop=2
-set shiftwidth=2
+set tabstop=2 shiftwidth=2 expandtab
 set number
 set incsearch hlsearch    " not needed in neovim as they are ON by default
-set list 
+set list
 set listchars=tab:\|\ ,space:·
 " Show tabs visually as |
 set cursorline      " Highlight current line
@@ -22,7 +21,7 @@ set hidden           " allow modified buffers to be hidden
 " Increase and decrease indents with >> and <<
 
 "***************************************************
-"* 1. vim-plug 
+"* 1. vim-plug
 "***************************************************
 call plug#begin()
 " Functional plugins
@@ -36,14 +35,14 @@ Plug 'vim-syntastic/syntastic'
 "Plug 'airblade/vim-gitgutter'
 "Plug 'tpope/vim-fugitive'
 "Plug 'lervag/vimtex'
-"Plug 'Valloric/YouCompleteMe' 
+"Plug 'Valloric/YouCompleteMe'
 " For YouCompleteMe:
 " I use C, go, and rust options ( I don't use C# or Java )
-" For javascript typescript, ensure that typescript is installed with 
+" For javascript typescript, ensure that typescript is installed with
 " npm install -g typescript
 " ./install.py --clang-completer --go-completer --rust-completer
 " Colorschemes
-Plug 'morhetz/gruvbox' 
+Plug 'morhetz/gruvbox'
 "Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
@@ -116,7 +115,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 5. indentLine 
+"* 5. indentLine
 "*****************************************************
 "NOTE: indentLine turns on conceal feature so depending on syntax some
 "   characters are hidden by default. I modified the default conceal cursor
@@ -126,7 +125,7 @@ map <C-n> :NERDTreeToggle<CR>
 "let g:indentLine_concealcursor = 'nc'
 
 "*****************************************************
-"* 6. vim-closetag 
+"* 6. vim-closetag
 "*****************************************************
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
