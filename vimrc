@@ -6,11 +6,10 @@
 "* 0. general settings
 "*************************************************
 set tabstop=2 shiftwidth=2 expandtab
-set number
+set relativenumber
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list
 set listchars=tab:\|\ ,space:·
-" Show tabs visually as |
 set cursorline      " Highlight current line
 set hidden           " allow modified buffers to be hidden
 
