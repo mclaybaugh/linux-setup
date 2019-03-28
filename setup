@@ -12,48 +12,40 @@
 # Section 1: Installation of software
 #**************************************************************
 
-# Installation of rtl8812au for my wifi usb dongle
-#git clone -b v5.1.5 https://github.com/aircrack-ng/rtl8812au.git
-#cd rtl8812au
-#sudo ./dkms-install.sh
+installNorms() {
+	apt install build-essential zsh curl git htop npm nodejs ranger \
+		fonts-powerline
+}
+echo "apt install build-essential zsh curl git htop npm nodejs ranger fonts-powerline"
+read -p "Install normal stuff? [y/N]: " installNorm
+if [ "$installNorm" == "y" ]; then
+	installNorms
+fi
 
-
-# The normal stuff
-#build-essential zsh curl git neovim htop npm nodejs ranger \
-#fonts-powerline virtualbox golang cmake
+installPython() {
+	apt install python python-dev python-pip python3 python3-dev python3-pip
+}
+echo "apt install python python-dev python-pip python3 python3-dev python3-pip"
+read -p "Install python? [y/N]: " installPython
+if [ "$installPython" == "y" ]; then
+	installPython
+fi
 
 # Python
-#python python-dev python-pip python3 python3-dev python3-pip
+#apt install python python-dev python-pip python3 python3-dev python3-pip
 
 # Docker
-#docker docker-compose
+#apt install docker docker-compose
+
+# PHP
+#apt install php
 
 # Latex
 #texlive-full biber
 
-# SNAP applications I use
-#gimp slack
-
-# LAMP stack
-#apache2 php libapache2-mod-php
-
 # OTHER
-# Visual Studio Code, Google Chrome, Rust
-
-# Ubuntu
-#apt install build-essential zsh curl git htop npm \
-#ranger fonts-powerline nodejs \
-#virtualbox \
-#golang cmake \
-#python python-dev python-pip python3 python3-dev python3-pip 
-#docker docker-compose \
-#texlive-full biber \
-#apache2 php libapache2-mod-php
-
-#snap install gimp #slack
-
-#npm install -g typescript
-#npm install -g grunt eslint
+# Visual Studio Code, Google Chrome
+#npm install -g eslint
 
 # zsh, ohmyz.sh
 #chsh -s $(which zsh)
@@ -61,8 +53,6 @@
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Vim-Plug
-#   1. install by running: 
-#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 #   2. Open vim, install plugins with ":PlugInstall"
 
 #*************************************************************
@@ -74,13 +64,9 @@
 #**************************************************************
 #TARGET_USER="mclaybaugh2"
 
-# Copy over .vimrc to nvim "init.vim"
-#cp vimrc "/home/$TARGET_USER/.config/nvim/init.vim" -v
-
 # Setup git
 #git config --global user.name "Michael Claybaugh"
 #git config --global user.email "mclaybaugh2@liberty.edu"
 
 # Unused files, do not comment unless using these
 #cp ./.config/i3/config "/home/$TARGET_USER/.config/i3/config" -v
-#cp redshift.conf "/home/$TARGET_USER/.config/redshift.conf" -v
