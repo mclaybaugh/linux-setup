@@ -23,29 +23,28 @@ set hidden           " allow modified buffers to be hidden
 "* 1. vim-plug
 "***************************************************
 call plug#begin()
+
 " Functional plugins
-Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-"Plug 'Yggdroot/indentLine' removed because it makes some markup hidden
-Plug 'alvan/vim-closetag'
-Plug 'vim-syntastic/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'skywind3000/asyncrun.vim'
 "Plug 'lervag/vimtex'
-"Plug 'Valloric/YouCompleteMe'
-" For YouCompleteMe:
-" I use C, go, and rust options ( I don't use C# or Java )
-" For javascript typescript, ensure that typescript is installed with
-" npm install -g typescript
-" ./install.py --clang-completer --go-completer --rust-completer
+
+" Syntax plugins
+Plug 'w0rp/ale'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 " Colorschemes
 Plug 'morhetz/gruvbox'
 "Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
+
 call plug#end()
 
 
@@ -114,35 +113,16 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 5. indentLine
+"* 5. async tasks
 "*****************************************************
-"NOTE: indentLine turns on conceal feature so depending on syntax some
-"   characters are hidden by default. I modified the default conceal cursor
-"   from 'inc' to 'nc' so that the hidden characters will show when one is
-"   editing the line
-"let g:indentLine_setColors = 0
-"let g:indentLine_concealcursor = 'nc'
+autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
 
 "*****************************************************
-"* 6. vim-closetag
+"* 7. Ale
 "*****************************************************
-" These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
-
-" These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml,php'
-
-"*****************************************************
-"* 7. Syntastic
-"*****************************************************
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
 "*****************************************************
 "* 8. Other keybindings
