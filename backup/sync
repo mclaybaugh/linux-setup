@@ -34,25 +34,28 @@ pull_files() {
 		$REMOTE $LOCAL
 }
 
+if [ ! -d "$LOCAL" ]; then
+  mkdir ~/backup
+fi
 
-read -p "Check pull status? [y/n]: " checkSync
+read -p "Check pull status? [y/N]: " checkSync
 if [ "$checkSync" == "y" ]; then
 	check_pull_status
 fi
 
-read -p "Check backup status? [y/n]: " checkBackup
+read -p "Check backup status? [y/N]: " checkBackup
 if [ "$checkBackup" == "y" ]; then
 		check_backup_status
 fi
 
-read -p "Pull files? [y/n]: " pull
+read -p "Pull files? [y/N]: " pull
 if [ "$pull" == "y" ]; then
 	pull_files
 fi
 
-read -p "Backup files? [y/n]: " backup
+read -p "Backup files? [y/N]: " backup
 if [ "$backup" == "y" ]; then
-	read -p "Delete other DEST files? [y/n]: " delete
+	read -p "Delete other DEST files? [y/N]: " delete
 	if [ "$delete" == "y" ]; then
 		backup_delete_destination_files
 	else
