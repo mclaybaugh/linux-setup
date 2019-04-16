@@ -3,16 +3,49 @@
 " To use this with neovim, copy the contents to ~/.config/nvim/init.vim
 
 "*************************************************
-"* 0. general settings
+"* 0. Settings and keybindings
 "*************************************************
 set tabstop=2 shiftwidth=2 expandtab
-set relativenumber
+set number relativenumber
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list
 set listchars=tab:\|\ ,space:·
 set cursorline      " Highlight current line
 set hidden           " allow modified buffers to be hidden
+" more natual split opening
+set splitbelow
+set splitright
 
+"Changing buffers
+nnoremap <m--> :bn<CR>
+
+"navigating windows
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-h> :wincmd h<CR>
+
+" resizing windows
+nnoremap <m-k> :resize +5<CR>
+nnoremap <m-l> :vertical resize -5<CR>
+nnoremap <m-h> :vertical resize +5<CR>
+nnoremap <m-j> :resize -5<CR>
+
+" rotate kindows (move them)
+nnoremap <m-r> <C-w>R
+
+"shortcut to un-highlight search terms
+nnoremap <Space><Space> :nohlsearch<CR>
+
+"opening terminal
+nnoremap <C-t> :split \| terminal<CR>
+
+"escaping terminal with Esc
+tnoremap <Esc> <C-\><C-n>
+
+" Spell checking
+nnoremap <f5> :setlocal spell spelllang=en_us <CR>
+nnoremap <f6> :set nospell <CR>
 " http://vim.wikia.com/wiki/Avoid_the_escape_key
 " For avoiding the escape key, will try C-[ and the various Alt commands
 " and see how that goes
@@ -30,7 +63,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'skywind3000/asyncrun.vim'
 "Plug 'lervag/vimtex'
 
 " Syntax plugins
@@ -70,11 +102,11 @@ nnoremap <C-s> :colorscheme sublimemonokai<CR>
 "* 3. Airline
 "*****************************************************
 
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+"let g:airline_powerline_fonts = 1
+"
+"if !exists('g:airline_symbols')
+    "let g:airline_symbols = {}
+"endif
 
 " unicode symbols
 "let g:airline_left_sep = '»'
@@ -91,13 +123,13 @@ endif
 "let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
+"let g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+"let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 
 " enable list of buffers
 " joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
@@ -113,55 +145,14 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 5. async tasks
-"*****************************************************
-autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-
-"*****************************************************
 "* 7. Ale
 "*****************************************************
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-
-"*****************************************************
-"* 8. Other keybindings
-"*****************************************************
-"Changing buffers
-nnoremap <m--> :bn<CR>
-
-" more natual split opening
-set splitbelow
-set splitright
-
-"navigating windows
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-h> :wincmd h<CR>
-
-" resizing windows
-nnoremap <m-k> :resize +5<CR>
-nnoremap <m-l> :vertical resize -5<CR>
-nnoremap <m-h> :vertical resize +5<CR>
-nnoremap <m-j> :resize -5<CR>
-
-" rotate kindows (move them)
-nnoremap <m-r> <C-w>R
-
-"shortcut to un-highlight search terms
-nnoremap <Space><Space> :nohlsearch<CR>
-
-"escaping terminal with Esc
-tnoremap <Esc> <C-\><C-n>
-
-" Line number toggling
-nnoremap <f3> :set norelativenumber<CR>
-nnoremap <f4> :set relativenumber<CR>
-
-" Spell checking
-nnoremap <f5> :setlocal spell spelllang=en_us <CR>
-nnoremap <f6> :set nospell <CR>
-
-" Syntastic turn off
-nnoremap <f7> :SyntasticToggleMode<CR>
+"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+"let g:ale_sign_warning = '.'
+"let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'javascript': ['eslint'],
+\}
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
