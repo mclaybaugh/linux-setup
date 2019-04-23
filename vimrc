@@ -12,6 +12,7 @@ set list
 set listchars=tab:\|\ ,space:·
 set cursorline      " Highlight current line
 set hidden           " allow modified buffers to be hidden
+set diffopt+=vertical
 " more natual split opening
 set splitbelow
 set splitright
@@ -63,6 +64,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 "Plug 'lervag/vimtex'
 
 " Syntax plugins
@@ -145,7 +148,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 7. Ale
+"* 5. Ale
 "*****************************************************
 "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 "let g:ale_sign_warning = '.'
@@ -156,3 +159,9 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
+
+"*****************************************************
+"* 6. fzf
+"*****************************************************
+
+nnoremap <C-p> :Files<CR>

@@ -14,7 +14,7 @@
 
 installNorms() {
 	sudo apt install build-essential zsh curl git htop npm nodejs ranger \
-		fonts-powerline
+		fonts-powerline fzf ripgrep
 }
 echo "apt install build-essential zsh curl git htop npm nodejs ranger fonts-powerline"
 read -p "Install normal stuff? [y/N]: " wantsNorms
