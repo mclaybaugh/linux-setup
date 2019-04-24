@@ -6,7 +6,8 @@
 "* 0. Settings and keybindings
 "*************************************************
 set tabstop=2 shiftwidth=2 expandtab
-set number relativenumber
+set number
+"set relativenumber
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list
 set listchars=tab:\|\ ,space:·
@@ -16,42 +17,10 @@ set diffopt+=vertical
 " more natual split opening
 set splitbelow
 set splitright
-
-"Changing buffers
-nnoremap <m--> :bn<CR>
-
-"navigating windows
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-h> :wincmd h<CR>
-
-" resizing windows
-nnoremap <m-k> :resize +5<CR>
-nnoremap <m-l> :vertical resize -5<CR>
-nnoremap <m-h> :vertical resize +5<CR>
-nnoremap <m-j> :resize -5<CR>
-
-" rotate kindows (move them)
-nnoremap <m-r> <C-w>R
-
-"shortcut to un-highlight search terms
-nnoremap <Space><Space> :nohlsearch<CR>
-
-"opening terminal
-nnoremap <C-t> :split \| terminal<CR>
-
-"escaping terminal with Esc
-tnoremap <Esc> <C-\><C-n>
-
-" Spell checking
-nnoremap <f5> :setlocal spell spelllang=en_us <CR>
-nnoremap <f6> :set nospell <CR>
-" http://vim.wikia.com/wiki/Avoid_the_escape_key
-" For avoiding the escape key, will try C-[ and the various Alt commands
-" and see how that goes
-
-" Increase and decrease indents with >> and <<
+set ignorecase
+set smartcase
+set scrolloff=3
+set visualbell
 
 "***************************************************
 "* 1. vim-plug
@@ -75,19 +44,16 @@ Plug 'mxw/vim-jsx'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
-"Plug 'ErichDonGubler/vim-sublime-monokai'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
-
 "****************************************************
 "* 2. Colorscheme
 "****************************************************
-"set t_Co=256 " this is recommended for minimalist colorscheme
-"colorscheme minimalist
 
 " sublimemonokai stuff
 if (has("termguicolors"))
@@ -99,31 +65,29 @@ endif
 set background=dark
 colorscheme gruvbox
 
-nnoremap <C-g> :colorscheme gruvbox<CR>:set background=dark<CR>
-nnoremap <C-s> :colorscheme sublimemonokai<CR>
 "*****************************************************
 "* 3. Airline
 "*****************************************************
 
 "let g:airline_powerline_fonts = 1
 "
-"if !exists('g:airline_symbols')
-    "let g:airline_symbols = {}
-"endif
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
 
 " unicode symbols
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
 "let g:airline_left_sep = ''
@@ -141,14 +105,9 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " show just the filename
 "let g:airline#extensions#tabline#fnamemod = ':t'
-"
-"*****************************************************
-"* 4. NERDTree
-"*****************************************************
-map <C-n> :NERDTreeToggle<CR>
 
 "*****************************************************
-"* 5. Ale
+"* 4. Ale
 "*****************************************************
 "let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 "let g:ale_sign_warning = '.'
@@ -161,7 +120,50 @@ let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 
 "*****************************************************
-"* 6. fzf
+"* 5. mappings
 "*****************************************************
 
+
+"Changing buffers
+nnoremap <m--> :bn<CR>
+
+"navigating windows
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-h> :wincmd h<CR>
+
+" resizing windows
+nnoremap <m-k> :resize +5<CR>
+nnoremap <m-l> :vertical resize -5<CR>
+nnoremap <m-h> :vertical resize +5<CR>
+nnoremap <m-j> :resize -5<CR>
+
+" rotate kindows (move them)
+nnoremap <m-r> <C-w>R
+
+"shortcut to un-highlight search terms
+nnoremap <Space><Space> :nohlsearch<CR>
+
+"escaping terminal with Esc
+tnoremap <Esc> <C-\><C-n>
+
+" Spell checking
+"nnoremap <f5> :setlocal spell spelllang=en_us <CR>
+"nnoremap <f6> :set nospell <CR>
+
+" http://vim.wikia.com/wiki/Avoid_the_escape_key
+" For avoiding the escape key, will try C-[ and the various Alt commands
+" and see how that goes
+
+" Increase and decrease indents with >> and <<
+
 nnoremap <C-p> :Files<CR>
+map <C-n> :NERDTreeToggle<CR>
+
+let mapleader=" "
+nmap <leader>aj :ALENext<CR>
+nmap <leader>ak :ALEPrevious<CR>
+nnoremap <leader>t :terminal<CR>
+nnoremap <leader>cg :colorscheme gruvbox<CR>:set background=dark<CR>
+nnoremap <leader>cs :colorscheme sublimemonokai<CR>
