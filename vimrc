@@ -158,12 +158,15 @@ tnoremap <Esc> <C-\><C-n>
 
 " Increase and decrease indents with >> and <<
 
-nnoremap <C-p> :Files<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 let mapleader=" "
-nmap <leader>aj :ALENext<CR>
-nmap <leader>ak :ALEPrevious<CR>
-nnoremap <leader>t :terminal<CR>
-nnoremap <leader>cg :colorscheme gruvbox<CR>:set background=dark<CR>
-nnoremap <leader>cs :colorscheme sublimemonokai<CR>
+"fzf
+nmap <leader>f :Files<CR>
+nmap <leader>t :Tags<CR>
+nmap <leader>h :History<CR>
+nmap <leader>m :Maps<CR>
+nmap <leader>c :Colors<CR>
+"ale
+nmap <leader>j :ALENext<CR>
+nmap <leader>k :ALEPrevious<CR>
