@@ -63,9 +63,8 @@ fi
 # Then logout and back in
 #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-#*************************************************************
-# Section 2: post install
-#**************************************************************
+# To connect to SQL Server
+#sudo apt install freetds unixodbc unixodbc-dev
 
 #*************************************************************
 # Section 3: Updating config files in home directory
