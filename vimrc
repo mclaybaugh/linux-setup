@@ -149,17 +149,10 @@ nnoremap <Space><Space> :nohlsearch<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Spell checking
-"nnoremap <f5> :setlocal spell spelllang=en_us <CR>
-"nnoremap <f6> :set nospell <CR>
-
-" http://vim.wikia.com/wiki/Avoid_the_escape_key
-" For avoiding the escape key, will try C-[ and the various Alt commands
-" and see how that goes
-
-" Increase and decrease indents with >> and <<
+nmap <f5> :setlocal spell spelllang=en_us <CR>
+nmap <f6> :set nospell <CR>
 
 map <C-n> :NERDTreeToggle<CR>
-
 let mapleader=" "
 "fzf
 nmap <leader>f :Files<CR>
@@ -170,3 +163,6 @@ nmap <leader>c :Colors<CR>
 "ale
 nmap <leader>j :ALENext<CR>
 nmap <leader>k :ALEPrevious<CR>
+" takeout windows line endings
+nmap <leader>fl :%s///g<CR>
+nmap <leader>fi gg=G
