@@ -2,7 +2,7 @@
 # Syncing files in ~/backup/ to personal server
 
 LOCAL="$HOME/backup/"
-REMOTE="michael@michaelclaybaugh.com:backup/"
+REMOTE="michael@206.189.69.88:backup/"
 
 check_backup_status() {
 	rsync --recursive --verbose --times --human-readable --update --dry-run \
