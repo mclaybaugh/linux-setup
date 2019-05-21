@@ -166,3 +166,7 @@ nmap <leader>k :ALEPrevious<CR>
 " takeout windows line endings
 nmap <leader>fl :%s///g<CR>
 nmap <leader>fi gg=G
+
+"redraw, useful for when saving files that are
+"being watched and the screen messes up
+nmap <leader>r :redraw!<CR>
