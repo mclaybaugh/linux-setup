@@ -41,6 +41,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'dag/vim-fish'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
