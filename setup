@@ -12,14 +12,14 @@
 # Section 1: Installation of software
 #**************************************************************
 
-installNorms() {
-	sudo apt install build-essential zsh curl git htop npm nodejs ranger \
-		fonts-powerline fzf ripgrep
+installUbuntuNorms() {
+	sudo apt install build-essential curl git htop npm nodejs ranger \
+		fonts-powerline fzf ripgrep fish
 }
-echo "apt install build-essential zsh curl git htop npm nodejs ranger fonts-powerline"
-read -p "Install normal stuff? [y/N]: " wantsNorms
-if [ "$wantsNorms" == "y" ]; then
-	installNorms
+echo "apt install build-essential curl git htop npm nodejs ranger fonts-powerline"
+read -p "Apt Install norms for Ubuntu? [y/N]: " wantsUbuntuNorms
+if [ "$wantsUbuntuNorms" == "y" ]; then
+	installUbuntuNorms
 fi
 
 installPython() {
@@ -31,16 +31,24 @@ if [ "$wantsPython" == "y" ]; then
 	installPython
 fi
 
-# Vim-Plug
-installVimPlug() {
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+installManjaroNorms() {
+  sudo pacman -Syu fzf ripgrep ranger fish snapd nodejs npm
 }
-read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
-if [ "$wantsVimPlug" == "y" ]; then
-  installVimPlug
-  echo "After this setup, open Vim and type :PlugInstall"
+read -p "Pacman -Syu norms for Manjaro? [y/N]: " installManjaroNorms
+if [ "$installManjaroNorms" == "y" ]; then
+	installManjaroNorms
 fi
+
+# Vim-Plug
+#installVimPlug() {
+#  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+#    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#}
+#read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
+#if [ "$wantsVimPlug" == "y" ]; then
+#  installVimPlug
+#  echo "After this setup, open Vim and type :PlugInstall"
+#fi
 
 # Python
 #apt install python python-dev python-pip python3 python3-dev python3-pip
@@ -57,11 +65,6 @@ fi
 # OTHER
 # Visual Studio Code, Google Chrome
 #npm install -g eslint
-
-# zsh, ohmyz.sh
-#chsh -s $(which zsh)
-# Then logout and back in
-#sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # To connect to SQL Server
 #sudo apt install freetds unixodbc unixodbc-dev
