@@ -13,7 +13,7 @@
 #**************************************************************
 
 installUbuntuNorms() {
-	sudo apt install build-essential curl git htop npm nodejs ranger \
+	sudo apt install build-essential curl git htop ranger \
 		fonts-powerline fzf ripgrep fish
 }
 echo "apt install build-essential curl git htop npm nodejs ranger fonts-powerline"
@@ -32,12 +32,17 @@ if [ "$wantsPython" == "y" ]; then
 fi
 
 installManjaroNorms() {
-  sudo pacman -Syu fzf ripgrep ranger fish snapd nodejs npm
+  sudo pacman -Syu fzf ripgrep ranger fish snapd docker docker-compose
 }
 read -p "Pacman -Syu norms for Manjaro? [y/N]: " installManjaroNorms
 if [ "$installManjaroNorms" == "y" ]; then
 	installManjaroNorms
 fi
+
+#manjaro docker
+#sudo systemctl start docker
+#sudo systemctl enable docker
+#sudo usermod -aG docker $USER
 
 # Vim-Plug
 #installVimPlug() {
@@ -92,3 +97,14 @@ if [ "$wantsSshPerms" == "y" ]; then
   sudo chmod 600 ~/.ssh/id_rsa
   sudo chmod 600 ~/.ssh/config
 fi
+
+# Getting nvm to work with fish
+
+# 1. install fisher
+#curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+# 2. install bass
+#fisher add edc/bass
+# 3. add function to ~/.config/fish/functions/nvm.fish
+#function nvm
+#  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+#end
