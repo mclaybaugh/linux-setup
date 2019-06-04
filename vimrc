@@ -124,7 +124,6 @@ let g:airline#extensions#ale#enabled = 1
 "* 5. mappings
 "*****************************************************
 
-
 "Changing buffers
 nnoremap <m--> :bn<CR>
 
@@ -150,24 +149,32 @@ nnoremap <Space><Space> :nohlsearch<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Spell checking
-nmap <f5> :setlocal spell spelllang=en_us <CR>
-nmap <f6> :set nospell <CR>
+noremap <f5> :setlocal spell spelllang=en_us <CR>
+noremap <f6> :set nospell <CR>
 
+" Nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+" Saving with C-s
+inoremap <C-s> <Esc>:w<CR>a
+nnoremap <C-s> :w<CR>
+
 let mapleader=" "
+"git-fugitive
+nnoremap <leader>g :Gstatus<CR>
 "fzf
-nmap <leader>f :Files<CR>
-nmap <leader>t :Tags<CR>
-nmap <leader>h :History<CR>
-nmap <leader>m :Maps<CR>
-nmap <leader>c :Colors<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>h :History<CR>
+nnoremap <leader>m :Maps<CR>
+nnoremap <leader>c :Colors<CR>
 "ale
-nmap <leader>j :ALENext<CR>
-nmap <leader>k :ALEPrevious<CR>
-" takeout windows line endings
-nmap <leader>fl :%s///g<CR>
-nmap <leader>fi gg=G
+nnoremap <leader>j :ALENext<CR>
+nnoremap <leader>k :ALEPrevious<CR>
+" Fix line endings and indents
+nnoremap <leader>fl :%s///g<CR>
+nnoremap <leader>fi gg=G
 
 "redraw, useful for when saving files that are
 "being watched and the screen messes up
-nmap <leader>r :redraw!<CR>
+nnoremap <leader>r :redraw!<CR>
