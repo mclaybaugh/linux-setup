@@ -10,7 +10,7 @@
 read -p "Apt Install norms for Ubuntu? [y/N]: " wantsUbuntuNorms
 if [ "$wantsUbuntuNorms" == "y" ]; then
   sudo apt install build-essential curl git npm nodejs ranger \
-    fzf ripgrep fish neovim docker docker-compose
+    fzf ripgrep neovim docker docker-compose snapd
   sudo systemctl start docker
   sudo systemctl enable docker
   sudo snap install discord
@@ -49,7 +49,7 @@ fi
 #**************************************************************
 
 VIM_CONFIG_DIR=~/.config/nvim
-read -p "Copy vimrc to ~/.config/nvim/init.vim? [y/N]" wantsInitVim
+read -p "Copy vimrc to ~/.config/nvim/init.vim? [y/N]: " wantsInitVim
 if [ "$wantsInitVim" ]; then
   if [ ! -d "$VIM_CONFIG_DIR" ]; then
     mkdir $VIM_CONFIG_DIR
@@ -80,3 +80,13 @@ fi
 #function nvm
 #  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
 #end
+
+read -p "Set Bash to be case insensitive? [y/N]: " wantsBashCaseFix
+if [ "$wantsBashCaseFix" == "y" ]; then
+  # If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
+  # so it won't get overriden
+  if [ ! -a ~/.inputrc ]; then echo 'source /etc/inputrc' > ~/.inputrc; fi
+
+  # Add shell-option to ~/.inputrc to enable case-insensitive tab completion
+  echo 'set completion-ignore-case On' >> ~/.inputrc
+fi
