@@ -9,21 +9,59 @@
 
 read -p "Apt Install norms for Ubuntu? [y/N]: " wantsUbuntuNorms
 if [ "$wantsUbuntuNorms" == "y" ]; then
-  sudo apt install build-essential curl git npm nodejs ranger \
-    neovim docker docker-compose snapd #fzf ripgrep
+  sudo apt install build-essential curl git npm nodejs ranger docker docker-compose php
   sudo systemctl start docker
   sudo systemctl enable docker
-  sudo snap install discord
 fi
 
-read -p "Install Ripgrep 11.0.1 from github? [y/N]: " wantsRipgrep
+$t="MCSetup:"
+$repoHome=$HOME/remote-repositories/
+
+read -p "Install discord deb? [y/N]: " wantsDiscord
+if [ "$wantsDiscord" == "y" ]; then
+  echo "$t Downloading release from discord..."
+  curl -Lo discord.deb https://discordapp.com/api/download?platform=linux&format=deb
+  echo "$t Installing"
+  sudo dpkg -i discord.deb
+  echo "$t Removing installation file"
+  rm -v discord.deb
+fi
+
+read -p "Install vscodium 1.35.1 from github? [y/N]: " wantsVscodium
+if [ "$wantsVscodium" == "y" ]; then
+  echo "$t Downloading release from Github..."
+  curl -Lo vscodium.deb https://github.com/VSCodium/vscodium/releases/download/1.35.1/codium_1.35.1-1560422401_amd64.deb
+  echo "$t Installing"
+  sudo dpkg -i vscodium.deb
+  echo "$t Removing installation file"
+  rm -v vscodium.deb
+fi
+
+read -p "Install ripgrep 11.0.1 from github? [y/N]: " wantsRipgrep
 if [ "$wantsRipgrep" == "y" ]; then
-  echo "Downloading release from Github..."
+  echo "$t Downloading release from Github..."
   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-  echo "Installing ripgrep"
+  echo "$t Installing"
   sudo dpkg -i ripgrep_11.0.1_amd64.deb
-  echo "Removing installation file"
+  echo "$t Removing installation file"
   rm -v ripgrep_11.0.1_amd64.deb
+fi
+
+read -p "Clone and build neovim? [y/N]: " wantsNeovim
+if [ "$wantsNeovim" == "y" ]; then
+    echo "$t Install prerequisites..."
+    sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+    echo "$t Clone repository..."
+    git clone https://github.com/neovim/neovim $repoHome/neovim
+    echo "$t Build and install..."
+    make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release
+    make install
+fi
+
+# clone standard repos
+read -p "git clone the normal repos? [y/N]: " wantsGitClone
+if [ "$wantsGitClone" == "y" ]; then
+    git clone https://github.com/magicmonty/bash-git-prompt $repoHome/bash-git-prompt
 fi
 
 read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
@@ -33,26 +71,24 @@ if [ "$wantsVimPlug" == "y" ]; then
   echo "After this setup, open Vim and type :PlugInstall"
 fi
 
-read -p "Install python? [y/N]: " wantsPython
-if [ "$wantsPython" == "y" ]; then
-  sudo apt install python python-dev python-pip python3 python3-dev python3-pip
+read -p "Install eslint from npm? [y/N]: " wantsEslint
+if [ "$wantsEslint" == "y" ]; then
+  sudo npm install --global eslint
 fi
 
-read -p "Pacman -Syu norms for Manjaro? [y/N]: " installManjaroNorms
-if [ "$installManjaroNorms" == "y" ]; then
-  installManjaroNorms
-  sudo pacman -Syu fzf ripgrep ranger fish snapd docker docker-compose
-fi
+#read -p "Install python? [y/N]: " wantsPython
+#if [ "$wantsPython" == "y" ]; then
+#  sudo apt install python python-dev python-pip python3 python3-dev python3-pip
+#fi
 
-# Visual Studio Code, Google Chrome
-#npm install -g eslint
+#read -p "Pacman -Syu norms for Manjaro? [y/N]: " installManjaroNorms
+#if [ "$installManjaroNorms" == "y" ]; then
+#  installManjaroNorms
+#  sudo pacman -Syu fzf ripgrep ranger fish snapd docker docker-compose
+#fi
+
 # To connect to SQL Server
 #sudo apt install freetds unixodbc unixodbc-dev
-
-#manjaro docker
-#sudo systemctl start docker
-#sudo systemctl enable docker
-#sudo usermod -aG docker $USER
 
 #*************************************************************
 # Section 3: Updating config files in home directory
@@ -81,16 +117,6 @@ if [ "$wantsSshPerms" == "y" ]; then
   sudo chmod -v 600 ~/.ssh/config
 fi
 
-# Getting nvm to work with fish
-# 1. install fisher
-#curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-# 2. install bass
-#fisher add edc/bass
-# 3. add function to ~/.config/fish/functions/nvm.fish
-#function nvm
-#  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
-#end
-
 read -p "Set Bash to be case insensitive? [y/N]: " wantsBashCaseFix
 if [ "$wantsBashCaseFix" == "y" ]; then
   # If ~/.inputrc doesn't exist yet: First include the original /etc/inputrc
@@ -100,3 +126,13 @@ if [ "$wantsBashCaseFix" == "y" ]; then
   # Add shell-option to ~/.inputrc to enable case-insensitive tab completion
   echo 'set completion-ignore-case On' >> ~/.inputrc
 fi
+
+# Getting nvm to work with fish
+# 1. install fisher
+#curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+# 2. install bass
+#fisher add edc/bass
+# 3. add function to ~/.config/fish/functions/nvm.fish
+#function nvm
+#  bass source ~/.nvm/nvm.sh --no-use ';' nvm $argv
+#end
