@@ -10,10 +10,20 @@
 read -p "Apt Install norms for Ubuntu? [y/N]: " wantsUbuntuNorms
 if [ "$wantsUbuntuNorms" == "y" ]; then
   sudo apt install build-essential curl git npm nodejs ranger \
-    fzf ripgrep neovim docker docker-compose snapd
+    neovim docker docker-compose snapd #fzf ripgrep
   sudo systemctl start docker
   sudo systemctl enable docker
   sudo snap install discord
+fi
+
+read -p "Install Ripgrep 11.0.1 from github? [y/N]: " wantsRipgrep
+if [ "$wantsRipgrep" == "y" ]; then
+  echo "Downloading release from Github..."
+  curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
+  echo "Installing ripgrep"
+  sudo dpkg -i ripgrep_11.0.1_amd64.deb
+  echo "Removing installation file"
+  rm -v ripgrep_11.0.1_amd64.deb
 fi
 
 read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
