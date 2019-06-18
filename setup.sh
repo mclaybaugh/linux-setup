@@ -15,7 +15,7 @@ if [ "$wantsUbuntuNorms" == "y" ]; then
 fi
 
 $t="MCSetup:"
-$repoHome=$HOME/remote-repositories/
+$repoHome=$HOME/repositories/
 
 read -p "Install discord deb? [y/N]: " wantsDiscord
 if [ "$wantsDiscord" == "y" ]; then

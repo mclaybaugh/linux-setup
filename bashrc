@@ -123,7 +123,7 @@ set completion-ignore-case on
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 
-GIT_PROMPT=$HOME/remote-repositories/bash-git-prompt/gitprompt.sh
+GIT_PROMPT=$HOME/repositories/bash-git-prompt/gitprompt.sh
 if [ -f "$GIT_PROMPT" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $GIT_PROMPT
