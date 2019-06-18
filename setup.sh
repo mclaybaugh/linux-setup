@@ -14,46 +14,46 @@ if [ "$wantsUbuntuNorms" == "y" ]; then
   sudo systemctl enable docker
 fi
 
-$t="MCSetup:"
-$repoHome=$HOME/repositories/
+T="MCSetup:"
+REPOHOME=$HOME/repositories/
 
 read -p "Install discord deb? [y/N]: " wantsDiscord
 if [ "$wantsDiscord" == "y" ]; then
-  echo "$t Downloading release from discord..."
+  echo "$T Downloading release from discord..."
   curl -Lo discord.deb https://discordapp.com/api/download?platform=linux&format=deb
-  echo "$t Installing"
+  echo "$T Installing"
   sudo dpkg -i discord.deb
-  echo "$t Removing installation file"
+  echo "$T Removing installation file"
   rm -v discord.deb
 fi
 
 read -p "Install vscodium 1.35.1 from github? [y/N]: " wantsVscodium
 if [ "$wantsVscodium" == "y" ]; then
-  echo "$t Downloading release from Github..."
+  echo "$T Downloading release from Github..."
   curl -Lo vscodium.deb https://github.com/VSCodium/vscodium/releases/download/1.35.1/codium_1.35.1-1560422401_amd64.deb
-  echo "$t Installing"
+  echo "$T Installing"
   sudo dpkg -i vscodium.deb
-  echo "$t Removing installation file"
+  echo "$T Removing installation file"
   rm -v vscodium.deb
 fi
 
 read -p "Install ripgrep 11.0.1 from github? [y/N]: " wantsRipgrep
 if [ "$wantsRipgrep" == "y" ]; then
-  echo "$t Downloading release from Github..."
+  echo "$T Downloading release from Github..."
   curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-  echo "$t Installing"
+  echo "$T Installing"
   sudo dpkg -i ripgrep_11.0.1_amd64.deb
-  echo "$t Removing installation file"
+  echo "$T Removing installation file"
   rm -v ripgrep_11.0.1_amd64.deb
 fi
 
 read -p "Clone and build neovim? [y/N]: " wantsNeovim
 if [ "$wantsNeovim" == "y" ]; then
-    echo "$t Install prerequisites..."
+    echo "$T Install prerequisites..."
     sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-    echo "$t Clone repository..."
+    echo "$T Clone repository..."
     git clone https://github.com/neovim/neovim $repoHome/neovim
-    echo "$t Build and install..."
+    echo "$T Build and install..."
     make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release
     make install
 fi
@@ -61,7 +61,7 @@ fi
 # clone standard repos
 read -p "git clone the normal repos? [y/N]: " wantsGitClone
 if [ "$wantsGitClone" == "y" ]; then
-    git clone https://github.com/magicmonty/bash-git-prompt $repoHome/bash-git-prompt
+    git clone https://github.com/magicmonty/bash-git-prompt $REPOHOME/bash-git-prompt
 fi
 
 read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
