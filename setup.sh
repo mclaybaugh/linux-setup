@@ -95,12 +95,15 @@ fi
 #**************************************************************
 
 VIM_CONFIG_DIR=~/.config/nvim
-read -p "Copy vimrc to ~/.config/nvim/init.vim? [y/N]: " wantsInitVim
-if [ "$wantsInitVim" ]; then
+read -p "Update configs for bash, eslint, and nvim? [y/N]: " wantsConfig
+if [ "$wantsConfig" == "y" ]; then
+  cp -v config/bashrc $HOME/.bashrc
+  cp -v config/git-prompt-colors.sh $HOME/.git-prompt-colors.sh
+  cp -v config/eslintrc.json $HOME/.eslintrc.json
   if [ ! -d "$VIM_CONFIG_DIR" ]; then
     mkdir $VIM_CONFIG_DIR
   fi
-  cp -v vimrc $VIM_CONFIG_DIR/init.vim
+  cp -v config/vimrc $VIM_CONFIG_DIR/init.vim
 fi
 
 read -p "Setup git config name and email? [y/N]: " wantsSetupGit
