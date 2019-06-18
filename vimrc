@@ -156,8 +156,12 @@ noremap <f6> :set nospell <CR>
 map <C-n> :NERDTreeToggle<CR>
 
 " Saving with C-s
-inoremap <C-s> <Esc>:w<CR>a
+inoremap <C-s> <Esc>:w<CR>
 nnoremap <C-s> :w<CR>
+
+" normal mode semicolon same as colon
+" since semicolon not very interesting
+nnoremap ; :
 
 let mapleader=" "
 "git-fugitive
