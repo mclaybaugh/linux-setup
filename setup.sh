@@ -9,7 +9,7 @@
 
 read -p "Apt Install norms for Ubuntu? [y/N]: " wantsUbuntuNorms
 if [ "$wantsUbuntuNorms" == "y" ]; then
-  sudo apt install build-essential curl git npm nodejs ranger docker docker-compose php
+  sudo apt install build-essential curl git npm nodejs ranger docker docker-compose php cifs-utils
   sudo systemctl start docker
   sudo systemctl enable docker
 fi
