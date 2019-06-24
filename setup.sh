@@ -15,7 +15,6 @@ if [ "$wantsUbuntuNorms" == "y" ]; then
 fi
 
 T="MCSetup:"
-REPOHOME=$HOME/repositories/
 
 read -p "Install discord deb? [y/N]: " wantsDiscord
 if [ "$wantsDiscord" == "y" ]; then
@@ -52,16 +51,18 @@ if [ "$wantsNeovim" == "y" ]; then
     echo "$T Install prerequisites..."
     sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
     echo "$T Clone repository..."
-    git clone https://github.com/neovim/neovim $repoHome/neovim
+    git clone https://github.com/neovim/neovim ../neovim
     echo "$T Build and install..."
+    cd ../neovim
     make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release
     make install
+    cd ../linux-setup
 fi
 
 # clone standard repos
 read -p "git clone the normal repos? [y/N]: " wantsGitClone
 if [ "$wantsGitClone" == "y" ]; then
-    git clone https://github.com/magicmonty/bash-git-prompt $REPOHOME/bash-git-prompt
+    git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
 fi
 
 read -p "Install Vim-Plug? [y/N]: " wantsVimPlug
