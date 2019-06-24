@@ -119,6 +119,7 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export PATH="$HOME/neovim/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 set completion-ignore-case on
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
