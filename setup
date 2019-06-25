@@ -98,19 +98,8 @@ TASK=start
 while [ "$TASK" != "exit" ]
 do
     echo ""
-    echo "Enter number to run command, or type 'exit'"
-    echo ""
-    echo "    1: Apt install norms for Ubuntu"
-    echo "    2: Install latest discord deb from discordapp.com"
-    echo "    3: Install vscodium 1.35.1 from github"
-    echo "    4: Install ripgrep 11.0.1 from github"
-    echo "    5: Clone and build neovim"
-    echo "    6: Clone bash-git-prompt"
-    echo "    7: Install Vim-Plug"
-    echo "    8: Install eslint from npm"
-    echo "    9: Update configs for bash, eslint, and nvim"
-    echo "    10: Setup git config name and email"
-    echo "    11: Set permissions of ssh folder"
+    echo "Available commands - norms, discord, vscodium, ripgrep, neovim,"
+    echo "    bashGitPrompt, vimPlug, eslint, configs, gitInfo, sshPerms, exit"
     echo ""
     printf "SETUP> "
     read -r TASK
@@ -119,27 +108,27 @@ do
     case $TASK in
         "exit")
             echo "Peace out";;
-        "1")
+        "norms")
             installUbuntuNorms;;
-        "2")
+        "discord")
             installDiscord;;
-        "3")
+        "vscodium")
             installVscodium;;
-        "4")
+        "ripgrep")
             installRipgrep;;
-        "5")
+        "neovim")
             cloneBuildNeovim;;
-        "6")
+        "bashGitPrompt")
             cloneBashGitPrompt;;
-        "7")
+        "vimPlug")
             installVimPlug;;
-        "8")
+        "eslint")
             installEslint;;
-        "9")
+        "configs")
             copyConfigs;;
-        "10")
+        "gitInfo")
             gitNameEmail;;
-        "11")
+        "sshPerms")
             sshFolderPerms;;
         *)
             echo "Invalid option"
