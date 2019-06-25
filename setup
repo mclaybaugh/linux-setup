@@ -9,10 +9,12 @@
 T="SETUP:"
 
 installUbuntuNorms() {
+    # Things omitted to be installed in other ways:
+    # 1. Neovim (from source)
+    # 2. Ripgrep (from github deb)
+    # 3. Discord (snap or deb)
     sudo apt install build-essential curl git npm nodejs ranger docker \
-        docker-compose php cifs-utils xclip
-    sudo systemctl start docker
-    sudo systemctl enable docker
+        docker-compose php cifs-utils xclip shellcheck universal-ctags
 }
 
 installDiscord() {
