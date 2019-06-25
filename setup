@@ -1,7 +1,6 @@
 #!/bin/sh
 # Author: Michael Claybaugh
-# Date created: Friday, Apr 13, 2018
-# Description: Bash shell script for automating the setup of my prefered linux
+# Description: Shell script for automating the setup of my prefered linux
 #              programs and settings
 
 # To connect to SQL Server
