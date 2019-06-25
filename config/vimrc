@@ -167,18 +167,19 @@ let mapleader=" "
 "git-fugitive
 nnoremap <leader>g :Gstatus<CR>
 "fzf
-nnoremap <leader>f :Files<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>h :History<CR>
-nnoremap <leader>m :Maps<CR>
-nnoremap <leader>c :Colors<CR>
+nnoremap <leader>rf :Files<CR>
+nnoremap <leader>rt :Tags<CR>
+nnoremap <leader>rh :History<CR>
+nnoremap <leader>rm :Maps<CR>
+nnoremap <leader>rc :Colors<CR>
 "ale
-nnoremap <leader>j :ALENext<CR>
-nnoremap <leader>k :ALEPrevious<CR>
+nnoremap <leader>aj :ALENext<CR>
+nnoremap <leader>ak :ALEPrevious<CR>
 " Fix line endings and indents
 nnoremap <leader>fl :%s///g<CR>
 nnoremap <leader>fi gg=G
-
+" ctags
+nnoremap <leader>c :!ctags -R --exclude=.git --exclude=node_modules<CR>
 "redraw, useful for when saving files that are
 "being watched and the screen messes up
 nnoremap <leader>r :redraw!<CR>
