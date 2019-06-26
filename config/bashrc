@@ -122,7 +122,11 @@ export PATH="$HOME/neovim/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 bind 'set completion-ignore-case on'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+VISUAL=vim; export VISUAL
+EDITOR=vim; export EDITOR
 alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
+alias dcu="sudo docker-compose up -d"
+alias dcd="sudo docker-compose down"
 
 GIT_PROMPT=$HOME/repositories/bash-git-prompt/gitprompt.sh
 if [ -f "$GIT_PROMPT" ]; then
