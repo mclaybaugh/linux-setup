@@ -107,6 +107,7 @@ copyConfigs() {
         mkdir $VIM_CONFIG_DIR
     fi
     cp -v config/vimrc "$VIM_CONFIG_DIR/init.vim"
+    cp -v config/i3-regolith-config "$HOME/.config/i3-regolith/config"
 }
 
 gitNameEmail() {
