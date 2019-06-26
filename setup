@@ -13,8 +13,27 @@ installUbuntuNorms() {
     # 1. Neovim (from source)
     # 2. Ripgrep (from github deb)
     # 3. Discord (snap or deb)
-    sudo apt install build-essential curl git npm nodejs ranger docker \
-        docker-compose php cifs-utils xclip shellcheck universal-ctags
+
+    # general
+    sudo apt install build-essential curl git ranger
+
+    # javascript dev
+    sudo apt install npm nodejs
+
+    # docker
+    sudo apt install docker docker-compose
+
+    # linting
+    sudo apt install php shellcheck
+
+    # smb
+    sudo apt install cifs-utils
+
+    # vim copy/paste, ctags
+    sudo apt install xclip universal-ctags
+
+    # st compilation requirements
+    sudo apt install libx11-dev libxft-dev
 }
 
 installDiscord() {
@@ -44,6 +63,14 @@ installRipgrep() {
     rm -v ripgrep_11.0.1_amd64.deb
 }
 
+installBrave() {
+    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+    source /etc/os-release
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+    sudo apt update
+    sudo apt install brave-keyring brave-browser
+}
+
 cloneBuildNeovim() {
     echo "$T Install prerequisites..."
     sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
@@ -56,8 +83,9 @@ cloneBuildNeovim() {
     cd ../linux-setup || exit
 }
 
-cloneBashGitPrompt() {
+gitCloneNorms() {
     git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
+    git clone https://github.com/mclaybaugh/st ../st
 }
 
 installVimPlug() {
@@ -98,8 +126,8 @@ TASK=start
 while [ "$TASK" != "exit" ]
 do
     echo ""
-    echo "Available commands - norms, discord, vscodium, ripgrep, neovim,"
-    echo "    bashGitPrompt, vimPlug, eslint, configs, gitInfo, sshPerms, exit"
+    echo "Available commands - norms, discord, vscodium, ripgrep, brave, neovim,"
+    echo "    gitCloneNorms, vimPlug, eslint, configs, gitInfo, sshPerms, exit"
     echo ""
     printf "SETUP> "
     read -r TASK
@@ -118,8 +146,8 @@ do
             installRipgrep;;
         "neovim")
             cloneBuildNeovim;;
-        "bashGitPrompt")
-            cloneBashGitPrompt;;
+        "gitCloneNorms")
+            gitCloneNorms;;
         "vimPlug")
             installVimPlug;;
         "eslint")
