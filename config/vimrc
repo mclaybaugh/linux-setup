@@ -155,9 +155,18 @@ noremap <f6> :set nospell <CR>
 " Nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-" Saving with C-s
-inoremap <C-s> <Esc>:w<CR>
-nnoremap <C-s> :w<CR>
+" Select all text in file
+nnoremap <C-a> ggVG
+
+" Copy into clipboard
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+
+" Paste from clipboard
+nnoremap <C-p> "+p
+
+" start search/replace
+nnoremap <C-s> :%s/
 
 " normal mode semicolon same as colon
 " since semicolon not very interesting
