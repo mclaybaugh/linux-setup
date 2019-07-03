@@ -98,16 +98,17 @@ installEslint() {
     sudo npm install --global eslint
 }
 
+REPO_HOME="$HOME/repositories/linux-setup"
 copyConfigs() {
     VIM_CONFIG_DIR=~/.config/nvim
-    cp -v config/bashrc "$HOME/.bashrc"
-    cp -v config/git-prompt-colors.sh "$HOME/.git-prompt-colors.sh"
-    cp -v config/eslintrc.json "$HOME/.eslintrc.json"
+    cp -v "$REPO_HOME/config/bashrc" "$HOME/.bashrc"
+    cp -v "$REPO_HOME/config/git-prompt-colors.sh" "$HOME/.git-prompt-colors.sh"
+    cp -v "$REPO_HOME/config/eslintrc.json" "$HOME/.eslintrc.json"
     if [ ! -d "$VIM_CONFIG_DIR" ]; then
         mkdir $VIM_CONFIG_DIR
     fi
-    cp -v config/vimrc "$VIM_CONFIG_DIR/init.vim"
-    cp -v config/i3-regolith-config "$HOME/.config/i3-regolith/config"
+    cp -v "$REPO_HOME/config/vimrc" "$VIM_CONFIG_DIR/init.vim"
+    cp -v "$REPO_HOME/config/i3-regolith-config" "$HOME/.config/i3-regolith/config"
 }
 
 gitNameEmail() {
