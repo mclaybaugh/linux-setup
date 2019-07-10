@@ -33,7 +33,7 @@ installUbuntuNorms() {
     sudo apt install xclip universal-ctags
 
     # st compilation requirements
-    sudo apt install libx11-dev libxft-dev
+    #sudo apt install libx11-dev libxft-dev
 }
 
 installDiscord() {
@@ -108,7 +108,7 @@ copyConfigs() {
         mkdir $VIM_CONFIG_DIR
     fi
     cp -v "$REPO_HOME/config/vimrc" "$VIM_CONFIG_DIR/init.vim"
-    cp -v "$REPO_HOME/config/i3-regolith-config" "$HOME/.config/i3-regolith/config"
+    #cp -v "$REPO_HOME/config/i3-regolith-config" "$HOME/.config/i3-regolith/config"
 }
 
 gitNameEmail() {
