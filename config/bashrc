@@ -143,7 +143,7 @@ alias dcd="sudo docker-compose down"
 
 # nav aliases
 alias repos="cd $HOME/repositories"
-alias linux-setup="cd $HOME/repositories/linux-setup"
+alias setup="cd $HOME/repositories/linux-setup"
 alias liberty="cd $HOME/repositories/liberty"
 alias wordpress="cd $HOME/docker/eduPlugins/site/wp-content/themes"
 alias clubsports="cd $HOME/docker/edu2/site/wp-content/themes/wp-clubsports-theme"
