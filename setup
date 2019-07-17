@@ -9,13 +9,8 @@
 T="SETUP:"
 
 installUbuntuNorms() {
-    # Things omitted to be installed in other ways:
-    # 1. Neovim (from source)
-    # 2. Ripgrep (from github deb)
-    # 3. Discord (snap or deb)
-
     # general
-    sudo apt install build-essential curl git ranger
+    sudo apt install build-essential curl wget ranger
 
     # javascript dev
     sudo apt install npm nodejs
@@ -25,6 +20,7 @@ installUbuntuNorms() {
 
     # linting
     sudo apt install php shellcheck
+    sudo npm install --global eslint
 
     # smb
     sudo apt install cifs-utils
@@ -32,8 +28,17 @@ installUbuntuNorms() {
     # vim copy/paste, ctags
     sudo apt install xclip universal-ctags
 
-    # st compilation requirements
-    #sudo apt install libx11-dev libxft-dev
+    # git info setup
+    git config --global user.name "Michael Claybaugh"
+    git config --global user.email "mclaybaugh2@liberty.edu"
+
+    # bash setup
+    git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
+
+    # vim-plug
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "After this setup, open vim and type :PlugInstall"
 }
 
 installDiscord() {
@@ -45,28 +50,12 @@ installDiscord() {
     rm -v discord.deb
 }
 
-installVscodium() {
-    echo "$T Downloading release from Github..."
-    curl -Lo vscodium.deb https://github.com/VSCodium/vscodium/releases/download/1.35.1/codium_1.35.1-1560422401_amd64.deb
-    echo "$T Installing"
-    sudo dpkg -i vscodium.deb
-    echo "$T Removing installation file"
-    rm -v vscodium.deb
-}
-
-installRipgrep() {
-    echo "$T Downloading release from Github..."
-    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.1/ripgrep_11.0.1_amd64.deb
-    echo "$T Installing"
-    sudo dpkg -i ripgrep_11.0.1_amd64.deb
-    echo "$T Removing installation file"
-    rm -v ripgrep_11.0.1_amd64.deb
-}
-
 installBrave() {
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc \
+        | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
     source /etc/os-release
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
+    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" \
+        | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
     sudo apt update
     sudo apt install brave-keyring brave-browser
 }
@@ -83,23 +72,9 @@ cloneBuildNeovim() {
     cd ../linux-setup || exit
 }
 
-gitCloneNorms() {
-    git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
-    git clone https://github.com/mclaybaugh/st ../st
-}
 
-installVimPlug() {
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "After this setup, open Vim and type :PlugInstall"
-}
-
-installEslint() {
-    sudo npm install --global eslint
-}
-
-REPO_HOME="$HOME/repositories/linux-setup"
 copyConfigs() {
+    REPO_HOME="$HOME/repositories/linux-setup"
     VIM_CONFIG_DIR=~/.config/nvim
     cp -v "$REPO_HOME/config/bashrc" "$HOME/.bashrc"
     cp -v "$REPO_HOME/config/git-prompt-colors.sh" "$HOME/.git-prompt-colors.sh"
@@ -108,12 +83,6 @@ copyConfigs() {
         mkdir $VIM_CONFIG_DIR
     fi
     cp -v "$REPO_HOME/config/vimrc" "$VIM_CONFIG_DIR/init.vim"
-    #cp -v "$REPO_HOME/config/i3-regolith-config" "$HOME/.config/i3-regolith/config"
-}
-
-gitNameEmail() {
-    git config --global user.name "Michael Claybaugh"
-    git config --global user.email "mclaybaugh2@liberty.edu"
 }
 
 sshFolderPerms() {
@@ -123,14 +92,22 @@ sshFolderPerms() {
     sudo chmod -v 600 ~/.ssh/config
 }
 
-TASK=start
+showCommands() {
+    echo ""
+    echo "Available commands:"
+    echo "    norms, discord, brave, neovim, configs, sshPerms, exit"
+    echo ""
+}
 
-while [ "$TASK" != "exit" ]
-do
-    echo ""
-    echo "Available commands - norms, discord, vscodium, ripgrep, brave, neovim,"
-    echo "    gitCloneNorms, vimPlug, eslint, configs, gitInfo, sshPerms, exit"
-    echo ""
+TASK="start"
+if [ "$1" = 'configs' ]; then
+    copyConfigs
+    exit 0
+fi
+
+echo "Setup by Michael Claybaugh, type 'help' for available commands or 'exit' to quit";
+
+while [ "$TASK" != "exit" ]; do
     printf "SETUP> "
     read -r TASK
 
@@ -142,24 +119,16 @@ do
             installUbuntuNorms;;
         "discord")
             installDiscord;;
-        "vscodium")
-            installVscodium;;
-        "ripgrep")
-            installRipgrep;;
+        "brave")
+            installBrave;;
         "neovim")
             cloneBuildNeovim;;
-        "gitCloneNorms")
-            gitCloneNorms;;
-        "vimPlug")
-            installVimPlug;;
-        "eslint")
-            installEslint;;
         "configs")
             copyConfigs;;
-        "gitInfo")
-            gitNameEmail;;
         "sshPerms")
             sshFolderPerms;;
+        "help")
+            showCommands;;
         *)
             echo "Invalid option"
     esac
