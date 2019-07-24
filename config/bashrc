@@ -129,6 +129,7 @@ fi
 
 export PATH="$HOME/neovim/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # vim default editor, fzf for vim
 VISUAL=vim; export VISUAL
