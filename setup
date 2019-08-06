@@ -6,130 +6,118 @@
 # To connect to SQL Server
 #sudo apt install freetds unixodbc unixodbc-dev
 
-T="SETUP:"
+installNorms() {
+  # git info setup
+  git config --global user.name "Michael Claybaugh"
+  git config --global user.email "mclaybaugh2@liberty.edu"
+
+  # bash setup
+  git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
+
+  # vim-plug
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  echo "After this setup, open vim and type :PlugInstall"
+}
 
 installUbuntuNorms() {
-    # general
-    sudo apt install build-essential curl wget ranger
+  # general
+  sudo apt install build-essential curl wget ranger
 
-    # javascript dev
-    sudo apt install npm nodejs
+  # javascript dev
+  sudo apt install npm nodejs
 
-    # docker
-    sudo apt install docker docker-compose
+  # docker
+  sudo apt install docker docker-compose
 
-    # linting
-    sudo apt install php shellcheck
-    sudo npm install --global eslint
+  # linting
+  sudo apt install php shellcheck
+  sudo npm install --global eslint
 
-    # smb
-    sudo apt install cifs-utils
+  # smb
+  sudo apt install cifs-utils
 
-    # vim copy/paste, ctags
-    sudo apt install xclip universal-ctags
+  # neovim
+  sudo apt install neovim
 
-    # git info setup
-    git config --global user.name "Michael Claybaugh"
-    git config --global user.email "mclaybaugh2@liberty.edu"
+  # vim copy/paste, ctags
+  sudo apt install xclip universal-ctags
 
-    # bash setup
-    git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
-
-    # vim-plug
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "After this setup, open vim and type :PlugInstall"
+  installNorms
 }
 
-installDiscord() {
-    echo "$T Downloading release from discord..."
-    curl -Lo discord.deb https://discordapp.com/api/download?platform=linux&format=deb
-    echo "$T Installing"
-    sudo dpkg -i discord.deb
-    echo "$T Removing installation file"
-    rm -v discord.deb
-}
-
-installBrave() {
-    curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc \
-        | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-    source /etc/os-release
-    echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ $UBUNTU_CODENAME main" \
-        | sudo tee /etc/apt/sources.list.d/brave-browser-release-${UBUNTU_CODENAME}.list
-    sudo apt update
-    sudo apt install brave-keyring brave-browser
+installMacNorms() {
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install ranger wget shellcheck nodejs neovim
+  installNorms
 }
 
 cloneBuildNeovim() {
-    echo "$T Install prerequisites..."
-    sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-    echo "$T Clone repository..."
-    git clone https://github.com/neovim/neovim ../neovim
-    echo "$T Build and install..."
-    cd ../neovim || exit
-    make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release
-    make install
-    cd ../linux-setup || exit
+  echo "SETUP: Install prerequisites..."
+  sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+  echo "SETUP: Clone repository..."
+  git clone https://github.com/neovim/neovim ../neovim
+  echo "SETUP: Build and install..."
+  cd ../neovim || exit
+  make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim" CMAKE_BUILD_TYPE=Release
+  make install
+  cd ../linux-setup || exit
 }
 
-
 copyConfigs() {
-    REPO_HOME="$HOME/repositories/linux-setup"
-    VIM_CONFIG_DIR=~/.config/nvim
-    cp -v "$REPO_HOME/config/bashrc" "$HOME/.bashrc"
-    cp -v "$REPO_HOME/config/git-prompt-colors.sh" "$HOME/.git-prompt-colors.sh"
-    cp -v "$REPO_HOME/config/eslintrc.json" "$HOME/.eslintrc.json"
-    if [ ! -d "$VIM_CONFIG_DIR" ]; then
-        mkdir $VIM_CONFIG_DIR
-    fi
-    cp -v "$REPO_HOME/config/vimrc" "$VIM_CONFIG_DIR/init.vim"
+  REPO_HOME="$HOME/repositories/linux-setup"
+  VIM_CONFIG_DIR=~/.config/nvim
+  cp -v "$REPO_HOME/config/bashrc" "$HOME/.bashrc"
+  cp -v "$REPO_HOME/config/git-prompt-colors.sh" "$HOME/.git-prompt-colors.sh"
+  cp -v "$REPO_HOME/config/eslintrc.json" "$HOME/.eslintrc.json"
+  if [ ! -d "$VIM_CONFIG_DIR" ]; then
+    mkdir -p $VIM_CONFIG_DIR
+  fi
+  cp -v "$REPO_HOME/config/vimrc" "$VIM_CONFIG_DIR/init.vim"
 }
 
 sshFolderPerms() {
-    sudo chmod -v 700 ~/.ssh
-    sudo chmod -v 644 ~/.ssh/id_rsa.pub
-    sudo chmod -v 600 ~/.ssh/id_rsa
-    sudo chmod -v 600 ~/.ssh/config
+  sudo chmod -v 700 ~/.ssh
+  sudo chmod -v 644 ~/.ssh/id_rsa.pub
+  sudo chmod -v 600 ~/.ssh/id_rsa
+  sudo chmod -v 600 ~/.ssh/config
 }
 
 showCommands() {
-    echo ""
-    echo "Available commands:"
-    echo "    norms, discord, brave, neovim, configs, sshPerms, exit"
-    echo ""
+  echo ""
+  echo "Available commands:"
+  echo "    ubuntu, mac, neovim, configs, sshPerms, exit"
+  echo ""
 }
 
 TASK="start"
 if [ "$1" = 'configs' ]; then
-    copyConfigs
-    exit 0
+  copyConfigs
+exit 0
 fi
 
 echo "Setup by Michael Claybaugh, type 'help' for available commands or 'exit' to quit";
 
 while [ "$TASK" != "exit" ]; do
-    printf "SETUP> "
-    read -r TASK
+  printf "SETUP> "
+  read -r TASK
 
-    # do task in case
-    case $TASK in
-        "exit")
-            echo "Peace out";;
-        "norms")
-            installUbuntuNorms;;
-        "discord")
-            installDiscord;;
-        "brave")
-            installBrave;;
-        "neovim")
-            cloneBuildNeovim;;
-        "configs")
-            copyConfigs;;
-        "sshPerms")
-            sshFolderPerms;;
-        "help")
-            showCommands;;
-        *)
-            echo "Invalid option"
-    esac
+  case $TASK in
+    "exit")
+      echo "Peace out";;
+    "ubuntu")
+      installUbuntuNorms;;
+    "mac")
+      installMacNorms;;
+    "neovim")
+      cloneBuildNeovim;;
+    "configs")
+      copyConfigs;;
+    "sshPerms")
+      sshFolderPerms;;
+    "help")
+      showCommands;;
+    *)
+      echo "Invalid option"
+  esac
 done
