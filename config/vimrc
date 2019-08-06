@@ -213,4 +213,4 @@ nnoremap <leader>x :redraw!<CR>
 nnoremap <leader>r :%s/
 " vimrc editing
 nnoremap <leader>ve :e $HOME/repositories/linux-setup/config/vimrc<CR>
-nnoremap <leader>vu :! $HOME/repositories/linux-setup/setup configs<CR>
+nnoremap <leader>vu :! $HOME/repositories/linux-setup/setup configs<CR>:source $MYVIMRC<CR>
