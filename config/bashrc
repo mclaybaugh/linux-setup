@@ -131,6 +131,7 @@ export CLICOLOR=1
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # vim default editor, fzf for vim
 VISUAL=vim; export VISUAL
@@ -143,6 +144,8 @@ alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} 
 alias dcu="sudo docker-compose up -d"
 alias dcd="sudo docker-compose down"
 alias temp="paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'"
+alias vu="vagrant up"
+alias vd="vagrant destroy"
 
 # nav aliases
 alias repos="cd $HOME/repositories"
