@@ -31,6 +31,8 @@ set visualbell
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
+autocmd BufRead,BufNewFile *.theme setfiletype php
+
 "***************************************************
 "* 1. vim-plug
 "***************************************************
@@ -52,6 +54,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'dag/vim-fish'
 Plug 'elmcast/elm-vim'
+Plug 'beyondwords/vim-twig'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -130,6 +133,8 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_php_phpcs_use_global = 1
 
 "*****************************************************
 "* 5. mappings
@@ -137,7 +142,9 @@ let g:airline#extensions#ale#enabled = 1
 
 "Changing buffers
 nnoremap <m--> :bp<CR>
-nnoremap <m-=> :bn<CR>
+nnoremap – :bp<CR>
+nnoremap <m-+> :bn<CR>
+nnoremap ≠ :bn<CR>
 
 "navigating windows
 nnoremap <C-k> :wincmd k<CR>
@@ -199,6 +206,8 @@ nnoremap <leader>c :Colors<CR>
 "ale
 nnoremap <leader>aj :ALENext<CR>
 nnoremap <leader>ak :ALEPrevious<CR>
+nnoremap <leader>ai :ALEInfo<CR>
+nnoremap <leader>ad :ALEDetail<CR>
 " Fix line endings and indents
 nnoremap <leader>l :%s///g<CR>
 nnoremap <leader>i gg=G
