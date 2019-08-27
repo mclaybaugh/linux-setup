@@ -55,6 +55,7 @@ Plug 'mxw/vim-jsx'
 Plug 'dag/vim-fish'
 Plug 'elmcast/elm-vim'
 Plug 'beyondwords/vim-twig'
+Plug 'jwalton512/vim-blade'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -209,7 +210,8 @@ nnoremap <leader>ak :ALEPrevious<CR>
 nnoremap <leader>ai :ALEInfo<CR>
 nnoremap <leader>ad :ALEDetail<CR>
 " Fix line endings and indents
-nnoremap <leader>l :%s///g<CR>
+nnoremap <leader>l :%s/
+//g<CR>
 nnoremap <leader>i gg=G
 nnoremap <leader>i2 :set shiftwidth=2 tabstop=2<CR>
 nnoremap <leader>i4 :set shiftwidth=4 tabstop=4<CR>
