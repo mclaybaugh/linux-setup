@@ -153,3 +153,7 @@ alias setup="cd $HOME/repositories/linux-setup"
 alias liberty="cd $HOME/repositories/liberty"
 alias wordpress="cd $HOME/docker/eduPlugins/site/wp-content/themes"
 alias clubsports="cd $HOME/docker/edu2/site/wp-content/themes/wp-clubsports-theme"
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
