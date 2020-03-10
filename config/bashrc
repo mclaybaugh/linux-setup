@@ -119,7 +119,7 @@ fi
 # Begin Michael Claybaugh stuff
 
 # Bash settings
-set -o vi # enable vi mode
+#set -o vi # enable vi mode
 bind 'set completion-ignore-case on'
 GIT_PROMPT=$HOME/repositories/bash-git-prompt/gitprompt.sh
 if [ -f "$GIT_PROMPT" ]; then
