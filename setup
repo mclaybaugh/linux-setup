@@ -9,7 +9,7 @@
 installNorms() {
   # git info setup
   git config --global user.name "Michael Claybaugh"
-  git config --global user.email "mclaybaugh2@liberty.edu"
+  git config --global user.email "michael.claybaugh@gmail.com"
 
   # bash setup
   git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
