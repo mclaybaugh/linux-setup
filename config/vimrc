@@ -52,14 +52,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'dag/vim-fish'
+"Plug 'dag/vim-fish'
 Plug 'elmcast/elm-vim'
 Plug 'beyondwords/vim-twig'
 Plug 'jwalton512/vim-blade'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
-Plug 'ErichDonGubler/vim-sublime-monokai'
+"Plug 'ErichDonGubler/vim-sublime-monokai'
 "Plug 'dikiaap/minimalist'
 "Plug 'chriskempson/base16-vim'
 "Plug 'mhartington/oceanic-next'
@@ -79,7 +79,7 @@ endif
 " gruvbox stuff
 set background=dark
 colorscheme gruvbox
-autocmd FileType javascript colorscheme sublimemonokai
+"autocmd FileType javascript colorscheme sublimemonokai
 
 "*****************************************************
 "* 3. Airline
@@ -106,13 +106,13 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
 
 " enable list of buffers
 " joshldavis.com/2014/04/05/vim-tab-madness-buffers-vs-tabs/
@@ -210,8 +210,7 @@ nnoremap <leader>ak :ALEPrevious<CR>
 nnoremap <leader>ai :ALEInfo<CR>
 nnoremap <leader>ad :ALEDetail<CR>
 " Fix line endings and indents
-nnoremap <leader>l :%s/
-//g<CR>
+nnoremap <leader>l :%s/^M//g<CR>
 nnoremap <leader>i gg=G
 nnoremap <leader>i2 :set shiftwidth=2 tabstop=2<CR>
 nnoremap <leader>i4 :set shiftwidth=4 tabstop=4<CR>
