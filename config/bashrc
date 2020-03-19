@@ -147,12 +147,7 @@ alias temp="paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/
 alias vu="vagrant up"
 alias vd="vagrant destroy"
 
-# nav aliases
-alias repos="cd $HOME/repositories"
-alias setup="cd $HOME/repositories/linux-setup"
-alias liberty="cd $HOME/repositories/liberty"
-alias wordpress="cd $HOME/docker/eduPlugins/site/wp-content/themes"
-alias clubsports="cd $HOME/docker/edu2/site/wp-content/themes/wp-clubsports-theme"
+# nav aliases in ~/.bash_aliases
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
