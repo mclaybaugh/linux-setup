@@ -68,6 +68,7 @@ copyConfigs() {
   REPO_HOME="$HOME/repositories/linux-setup"
   VIM_CONFIG_DIR=~/.config/nvim
   cp -v "$REPO_HOME/config/bashrc" "$HOME/.bashrc"
+  cp -v "$REPO_HOME/config/zshrc" "$HOME/.zshrc"
   cp -v "$REPO_HOME/config/git-prompt-colors.sh" "$HOME/.git-prompt-colors.sh"
   cp -v "$REPO_HOME/config/eslintrc.json" "$HOME/.eslintrc.json"
   if [ ! -d "$VIM_CONFIG_DIR" ]; then
