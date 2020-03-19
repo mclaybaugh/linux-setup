@@ -14,6 +14,9 @@ installNorms() {
   # bash setup
   git clone https://github.com/magicmonty/bash-git-prompt ../bash-git-prompt
 
+  # zsh setup
+  git clone https://github.com/olivierverdier/zsh-git-prompt
+
   # vim-plug
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

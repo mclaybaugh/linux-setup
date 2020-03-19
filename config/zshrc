@@ -10,6 +10,7 @@ export ZSH="/Users/michaelclaybaugh/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
+#ZSH_THEME="avit"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -115,4 +116,6 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-prompt_context(){}
+source "$HOME/repositories/zsh-git-prompt/zshrc.sh"
+GIT_PROMPT_EXECUTABLE="haskell"
+source "$HOME/repositories/linux-setup/config/zsh-git-prompt-agnoster.zsh"
