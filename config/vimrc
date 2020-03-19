@@ -194,33 +194,42 @@ inoremap <C-s> <Esc>:w<CR>
 nnoremap ; :
 
 let mapleader=" "
+
 "git-fugitive
 nnoremap <leader>g :Gstatus<CR>
-"terminal
-nnoremap <leader>s :terminal<CR>
+
 "fzf
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <leader>m :Maps<CR>
 nnoremap <leader>c :Colors<CR>
+
 "ale
 nnoremap <leader>aj :ALENext<CR>
 nnoremap <leader>ak :ALEPrevious<CR>
 nnoremap <leader>ai :ALEInfo<CR>
 nnoremap <leader>ad :ALEDetail<CR>
+
 " Fix line endings and indents
 nnoremap <leader>l :%s/^M//g<CR>
 nnoremap <leader>i gg=G
 nnoremap <leader>i2 :set shiftwidth=2 tabstop=2<CR>
 nnoremap <leader>i4 :set shiftwidth=4 tabstop=4<CR>
+
 " ctags
 nnoremap <leader>ct :!ctags -R --exclude=.git --exclude=node_modules<CR>
+
 "redraw, useful for when saving files that are
 "being watched and the screen messes up
 nnoremap <leader>x :redraw!<CR>
+
 " start search/replace
 nnoremap <leader>r :%s/
+
 " vimrc editing
 nnoremap <leader>ve :e $HOME/repositories/linux-setup/config/vimrc<CR>
 nnoremap <leader>vu :! $HOME/repositories/linux-setup/setup configs<CR>:source $MYVIMRC<CR>
+
+" run gulp styles quickly
+nnoremap <leader>gs :! gulp styles<CR>
