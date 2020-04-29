@@ -32,6 +32,7 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 autocmd BufRead,BufNewFile *.theme setfiletype php
+autocmd BufRead,BufNewFile *.module setfiletype php
 
 "***************************************************
 "* 1. vim-plug
