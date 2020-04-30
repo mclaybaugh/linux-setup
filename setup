@@ -22,7 +22,8 @@ installNorms() {
   # zsh setup
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   git clone https://github.com/olivierverdier/zsh-git-prompt ../zsh-git-prompt
-  #haskell stack required for zsh-git-prompt and haskell is amazing anyway
+
+  # haskell stack required for zsh-git-prompt and haskell is amazing anyway
   curl -sSL https://get.haskellstack.org/ | sh
   cd ../zsh-git-prompt || exit
   stack setup
@@ -33,6 +34,9 @@ installNorms() {
 installUbuntuNorms() {
   # general
   sudo apt install build-essential curl wget ranger zsh
+
+  # fonts
+  fonts-powerline fonts-firacode
 
   # javascript dev
   sudo apt install npm nodejs
