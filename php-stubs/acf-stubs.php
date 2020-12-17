@@ -13,3 +13,16 @@ function acf_add_local_field_group(array $field_group) {}
 function have_rows(string $selector, int $post_id = false): bool {}
 
 function the_row() {}
+
+function add_row(string $selector, $values, $post_id = null) {}
+
+function get_field_object(string $selector): array {}
+
+function update_field(string $selector, $value, $post_id = null): bool {}
+
+function update_sub_field(string $selector, $value, $post_id = null): bool {}
+
+class WP_CLI {
+    public static function log(string $message) {}
+    public static function error(string $message) {}
+}
