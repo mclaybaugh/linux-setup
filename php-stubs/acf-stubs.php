@@ -2,9 +2,13 @@
 
 function get_field(string $selector, $post_id = null, bool $format_value = true): string|array|object {}
 
+function the_field(string $selector, $post_id = null, bool $format_value = true) {}
+
 function get_sub_field(string $selector, bool $format_value = true): string|array|object {}
 
 function acf_add_options_page(array $settings) {}
+
+function acf_add_options_sub_page(array $settings) {}
 
 function get_fields($post_id = null, bool $format_value = null): array|false {}
 
