@@ -6,9 +6,9 @@ function the_field(string $selector, $post_id = null, bool $format_value = true)
 
 function get_sub_field(string $selector, bool $format_value = true): string|array|object {}
 
-function acf_add_options_page(array $settings) {}
+function acf_add_options_page(array $settings = null) {}
 
-function acf_add_options_sub_page(array $settings) {}
+function acf_add_options_sub_page(array $settings = null) {}
 
 function get_fields($post_id = null, bool $format_value = null): array|false {}
 
@@ -25,8 +25,3 @@ function get_field_object(string $selector): array {}
 function update_field(string $selector, $value, $post_id = null): bool {}
 
 function update_sub_field(string $selector, $value, $post_id = null): bool {}
-
-class WP_CLI {
-    public static function log(string $message) {}
-    public static function error(string $message) {}
-}

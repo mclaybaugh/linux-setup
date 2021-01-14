@@ -92,6 +92,11 @@ export PATH=$PATH:"$ANDROID_HOME/tools"
 export PATH=$PATH:"$ANDROID_HOME/tools/bin"
 export PATH=$PATH:"$ANDROID_HOME/platform-tools"
 
+# Oracle client
+INSTANTCLIENT_PATH="/opt/oracle/instantclient_21_1"
+export LD_LIBRARY_PATH="$INSTANTCLIENT_PATH:$LD_LIBRARY_PATH"
+export ORACLE_HOME="$INSTANTCLIENT_PATH"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
