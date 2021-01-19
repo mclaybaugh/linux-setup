@@ -82,6 +82,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # Android Studio and react native setup
 export PATH="$PATH:$HOME/android-studio/bin"
