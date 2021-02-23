@@ -1,6 +1,8 @@
 <?php
 
-function get_field(string $selector, $post_id = null, bool $format_value = true): string|array|object {}
+function get_field(string $selector, $post_id = null, bool $format_value = true) {}
+
+function delete_field(string $selector, $post_id = null): bool {}
 
 function the_field(string $selector, $post_id = null, bool $format_value = true) {}
 
