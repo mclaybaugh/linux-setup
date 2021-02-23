@@ -60,6 +60,9 @@ installUbuntuNorms() {
   # vim copy/paste, ctags, fzf
   sudo apt install xclip universal-ctags fzf
 
+  # local dev
+  sudo apt install apache mysql php php-dev
+
   installNorms
 }
 
