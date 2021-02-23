@@ -1,0 +1,23 @@
+{
+  "name": "linux-setup",
+  "version": "1.0.0",
+  "description": "Tools and scripts to setup and configure a linux desktop, and to sync files with a remote location.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mclaybaugh/linux-setup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mclaybaugh/linux-setup/issues"
+  },
+  "homepage": "https://github.com/mclaybaugh/linux-setup#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
