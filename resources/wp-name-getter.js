@@ -49,13 +49,6 @@ async function wpSiteNamesFromFile(file) {
         process.exitCode = 1;
     }
     return response;
-    // fs.readFile(file)
-    //     .then((buffer) => {
-            
-    //     })
-    //     .catch((reason) => {
-            
-    //     });
 }
 
 async function requestSiteNames(urls) {
