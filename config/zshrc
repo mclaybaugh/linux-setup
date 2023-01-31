@@ -121,11 +121,13 @@ export ORACLE_HOME="$INSTANTCLIENT_PATH"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} && git status -s && echo)' \;"
 alias gitlogpretty="git log --all --graph --decorate --oneline"
-source "$HOME/.bash_aliases"
+alias vim="nvim"
+alias vi="nvim"
+#source "$HOME/.bash_aliases"
 
 # vim default editor, fzf for vim
-VISUAL=vim; export VISUAL
-EDITOR=vim; export EDITOR
+VISUAL=nvim; export VISUAL
+EDITOR=nvim; export EDITOR
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -134,6 +136,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   #[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
+### 2023-01-30 Commenting out zsh-git-prompt because haskell stack aint working
 source "$HOME/repositories/zsh-git-prompt/zshrc.sh"
-GIT_PROMPT_EXECUTABLE="haskell"
+#GIT_PROMPT_EXECUTABLE="haskell"
 source "$HOME/repositories/linux-setup/config/zsh-git-prompt-agnoster.zsh"

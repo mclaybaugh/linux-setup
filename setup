@@ -9,7 +9,7 @@
 installNorms() {
   # git info setup
   git config --global user.name "Michael Claybaugh"
-  git config --global user.email "michael.claybaugh@gmail.com"
+  git config --global user.email "mclaybaugh2@liberty.edu"
 
   # vim-plug
   curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -27,11 +27,11 @@ installNorms() {
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
   # haskell stack required for zsh-git-prompt and haskell is amazing anyway
-  curl -sSL https://get.haskellstack.org/ | sh
-  cd ../zsh-git-prompt || exit
-  stack setup
-  stack build && stack install
-  cd ../linux-setup || exit
+#  curl -sSL https://get.haskellstack.org/ | sh
+#  cd ../zsh-git-prompt || exit
+#  stack setup
+#  stack build && stack install
+#  cd ../linux-setup || exit
 }
 
 installUbuntuNorms() {
