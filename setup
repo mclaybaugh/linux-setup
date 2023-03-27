@@ -3,9 +3,6 @@
 # Description: Shell script for automating the setup of my prefered linux
 #              programs and settings
 
-# To connect to SQL Server
-#sudo apt install freetds unixodbc unixodbc-dev
-
 installNorms() {
   # git info setup
   git config --global user.name "Michael Claybaugh"
@@ -62,6 +59,12 @@ installUbuntuNorms() {
 
   # local dev
   sudo apt install apache mysql php php-dev
+
+  # sqlsrv
+  sudo apt install unixodbc unixodbc-dev php-pear
+  ## check version of sqlsrv from github
+  # sudo pecl install sqlsrv-5.11.0
+  # sudo pecl install pdo_sqlsrv-5.11.0
 
   installNorms
 }
