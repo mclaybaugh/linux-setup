@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -123,6 +123,7 @@ alias gd="find . -maxdepth 1 -mindepth 1 -type d -exec sh -c '(echo {} && cd {} 
 alias gitlogpretty="git log --all --graph --decorate --oneline"
 alias vim="nvim"
 alias vi="nvim"
+alias workdoc="vi Dropbox\ \(Liberty\ University\)/Documents/2023-07_beachtime.md"
 #source "$HOME/.bash_aliases"
 
 # vim default editor, fzf for vim

@@ -5,9 +5,9 @@
 "*************************************************
 "* 0. Settings and keybindings
 "*************************************************
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2
 set number
-set relativenumber
+"set relativenumber
 set incsearch hlsearch    " not needed in neovim as they are ON by default
 set list
 set listchars=tab:\|\ ,space:·
@@ -55,7 +55,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 "Plug 'dag/vim-fish'
 Plug 'elmcast/elm-vim'
-Plug 'beyondwords/vim-twig'
+Plug 'nelsyeung/twig.vim'
 Plug 'jwalton512/vim-blade'
 Plug 'posva/vim-vue'
 
@@ -134,7 +134,7 @@ let g:ale_fixers = {
 \  '*': ['remove_trailing_lines', 'trim_whitespace'],
 \  'javascript': ['eslint'],
 \}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_php_phpcs_use_global = 1
